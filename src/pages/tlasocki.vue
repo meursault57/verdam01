@@ -68,7 +68,7 @@ export default {
   },
   destroyed: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('***destroyed')
+      console.log('**destroyed')
     }
   }
 }
