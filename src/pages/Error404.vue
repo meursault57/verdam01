@@ -6,7 +6,7 @@
       </div>
 
       <div class="text-h2" style="opacity:.4">
-        Dooooooopa...
+        Dooooooopaaa...
       </div>
 
       <q-btn
