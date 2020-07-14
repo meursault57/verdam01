@@ -31,6 +31,7 @@ export default {
   computed: {
 
   },
+
   beforeCreate: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('**beforeCreate')
@@ -39,6 +40,7 @@ export default {
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('**created')
+      console.log('**created: sitename-> ' + this.sitename)
     }
   },
   beforeMount: function () {
