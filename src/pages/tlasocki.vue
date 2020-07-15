@@ -57,8 +57,17 @@ export default {
   },
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
+<<<<<<< HEAD
+<<<<<<< 66228b227a6a0843a67f92f4c83046640b5bd92d
+      console.log('**created')
+=======
       // debugger
       console.log('**created: sitename-> ' + this.sitename)
+>>>>>>> dodanie filtra
+=======
+      // debugger
+      console.log('**created: sitename-> ' + this.sitename)
+>>>>>>> e5449ff7fb731d89e55e1cda55a8ad8a82e60cea
     }
   },
   beforeMount: function () {
