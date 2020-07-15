@@ -1,13 +1,44 @@
 <template>
 <div>
-    <head>
-        <title>Tytuł ale się nie wyświetla...</title>
-    </head>
-    <div>
-      <header>
-        <div class="self-center full-width no-outline">{{ sitename }}</div>
-      </header>
-    </div>
+              <!--<div class="self-center full-width no-outline">{{ sitename }}</div>-->
+              <!--
+              <head>
+                <title>Skład dla zwierzaków :: Vue.js</title>
+                <script src="https://unpkg.com/vue"></script>
+                <link rel="stylesheet"  href="assets/css/app.css" />
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                  crossorigin="anonymous">
+                <meta charset="UTF-8">
+              </head>
+              -->
+      <div id="app">
+              <!--
+              <header>
+                <div class="navbar navbar-default">
+                  <div class="navbar-header">-->
+                    <!--<h1 v-text="sitename"></h1>-->
+                    <div class="self-center full-width no-outline">{{ sitename }}</div>
+              <!--
+                  </div>
+                </div>
+              </header>
+              -->
+          <div class="row">
+                      <div class="col-md-2 col-md-offset-1">
+                        <figure>
+                          <img v-bind:src="product.image">
+                        </figure>
+                      </div>
+              <div class="col-md-6 col-md-offset-2 description">
+                <h1 v-text="product.title"></h1>
+                <p v-html="product.description"></p>
+                <p class="price">
+                  {{product.price | formatPrice}}
+                </p>
+              </div>
+          </div>
+      </div>
+
 </div>
 </template>
 
@@ -21,9 +52,10 @@ export default {
       product: {
         id: 1001,
         title: 'Karma dla zwierza 10',
-        description: '10 kg karmy <em>oprze</em>!',
+        description: '10 kg karmy <em> wow </em>!',
         price: 6700,
-        image: 'assets/images/product-fullsize.png'
+        image: './assets/images/product-fullsize.png'
+        // image: './statics/jweis.png'
       }
     }
   },
