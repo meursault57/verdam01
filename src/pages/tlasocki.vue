@@ -26,7 +26,7 @@
           <div class="row">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
-                          <img v-bind:src="product.image">
+                          <img :src="product.image">
                         </figure>
                       </div>
               <div class="col-md-6 col-md-offset-2 description">
@@ -54,8 +54,8 @@ export default {
         title: 'Karma dla zwierza 10',
         description: '10 kg karmy <em> wow </em>!',
         price: 6700,
-        image: './assets/images/product-fullsize.png'
-        // image: './statics/jweis.png'
+        // image: './assets/images/product-fullsize.png'
+        image: './statics/product-fullsize.png'
       }
     }
   },
