@@ -26,7 +26,7 @@
           <div class="row">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
-                          <img :src="product.image">
+                          <img src='~assets/product-fullsize.png'>
                         </figure>
                       </div>
               <div class="col-md-6 col-md-offset-2 description">
@@ -44,7 +44,7 @@
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-
+// import image from '@/assets/product-fullsize.png'
 export default {
   data () {
     return {
@@ -53,9 +53,10 @@ export default {
         id: 1001,
         title: 'Karma dla zwierza 10',
         description: '10 kg karmy <em> wow </em>!',
-        price: 6700,
-        // image: './assets/images/product-fullsize.png'
-        image: './statics/product-fullsize.png'
+        price: 6700
+        // image
+        // image: './assets/product-fullsize.png'
+        // image: './statics/product-fullsize.png'
       }
     }
   },
