@@ -1,45 +1,44 @@
 <template>
 <div>
-              <!--<div class="self-center full-width no-outline">{{ sitename }}</div>-->
-
               <head>
                 <title>Skład dla zwierzaków :: Vue.js</title>
                 <!-- <script src="https://unpkg.com/vue"></script> -->
                 <link rel="stylesheet"  href="assets/css/app.css" />
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                   crossorigin="anonymous">
                 <meta charset="UTF-8">
               </head>
 
       <div id="app">
-              <!--
               <header>
                 <div class="navbar navbar-default">
-                  <div class="navbar-header">-->
+                  <div class="navbar-header">
                     <!--<h1 v-text="sitename"></h1>-->
                     <div class="self-center full-width no-outline">{{ sitename }}</div>
-                    <div class="nav navbar-nav navbar-right cart"><span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span></div>
-              <!--
+                    <div class="nav navbar-nav navbar-right cart">
+                      <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span>
+                    </div>
+
                   </div>
                 </div>
               </header>
-              -->
-          <div class="row">
-                      <div class="col-md-2 col-md-offset-1">
-                        <figure>
-                          <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                          <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
-                        </figure>
-                      </div>
-              <div class="col-md-6 col-md-offset-2 description">
-                <h5 v-text="product.title"></h5>
-                <p v-html="product.description"></p>
-                <p>
-                  {{product.price | formatPrice}}
-                </p>
-                <button class="default" v-on:click="addToCart">Dodaj do koszyka</button>
+              <div class="row">
+                          <div class="col-md-2 col-md-offset-1">
+                            <figure>
+                              <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
+                              <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
+                            </figure>
+                          </div>
+                  <div class="col-md-6 col-md-offset-2 description">
+                    <h5 v-text="product.title"></h5>
+                    <p v-html="product.description"></p>
+                    <p>
+                      {{product.price | formatPrice}}
+                    </p>
+                    <button class="default" v-on:click="addToCart">Dodaj do koszyka</button>
+                  </div>
               </div>
-          </div>
       </div>
 </div>
 </template>
