@@ -26,7 +26,11 @@
           <div class="row">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
+<<<<<<< HEAD
                           <img style="height:90px; width:90px;" :src="product.image">
+=======
+                          <img src='~assets/product-fullsize.png'>
+>>>>>>> bddfc76260c4801ae87669e64b5b2422570ad908
                         </figure>
                       </div>
               <div class="col-md-6 col-md-offset-2 description">
@@ -44,7 +48,7 @@
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-
+// import image from '@/assets/product-fullsize.png'
 export default {
   data () {
     return {
@@ -53,9 +57,16 @@ export default {
         id: 1001,
         title: 'Karma dla zwierza 10',
         description: '10 kg karmy <em> wow </em>!',
+<<<<<<< HEAD
         price: 6700,
         image: './assets/quasar-logo-full.svg'
         // image: './src/statics/product-fullsize.png'
+=======
+        price: 6700
+        // image
+        // image: './assets/product-fullsize.png'
+        // image: './statics/product-fullsize.png'
+>>>>>>> bddfc76260c4801ae87669e64b5b2422570ad908
       }
     }
   },
