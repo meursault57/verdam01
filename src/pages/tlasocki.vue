@@ -26,7 +26,8 @@
           <div class="row">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
-                          <img style="height:90px; width:90px;" :src="product.image">
+                          <!--<img style="height:90px; width:90px;" :src="product.image">-->
+                          <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
                         </figure>
                       </div>
               <div class="col-md-6 col-md-offset-2 description">
@@ -53,8 +54,8 @@ export default {
         id: 1001,
         title: 'Karma dla zwierza 10',
         description: '10 kg karmy <em> wow </em>!',
-        price: 6700,
-        image: './assets/quasar-logo-full.svg',
+        price: 6700
+        // image: './assets/quasar-logo-full.svg'
         // image
         // image: './assets/product-fullsize.png'
         // image: './statics/product-fullsize.png'
