@@ -1,16 +1,16 @@
 <template>
 <div>
               <!--<div class="self-center full-width no-outline">{{ sitename }}</div>-->
-              <!--
+
               <head>
                 <title>Skład dla zwierzaków :: Vue.js</title>
-                <script src="https://unpkg.com/vue"></script>
+                <!-- <script src="https://unpkg.com/vue"></script> -->
                 <link rel="stylesheet"  href="assets/css/app.css" />
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                   crossorigin="anonymous">
                 <meta charset="UTF-8">
               </head>
-              -->
+
       <div id="app">
               <!--
               <header>
@@ -18,6 +18,7 @@
                   <div class="navbar-header">-->
                     <!--<h1 v-text="sitename"></h1>-->
                     <div class="self-center full-width no-outline">{{ sitename }}</div>
+                    <div class="nav navbar-nav navbar-right cart"><span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span></div>
               <!--
                   </div>
                 </div>
@@ -26,16 +27,17 @@
           <div class="row">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
-                          <!-- <q-img style="height:90px; width:90px;" :src="product.image"> -->
+                          <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
                           <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
                         </figure>
                       </div>
               <div class="col-md-6 col-md-offset-2 description">
-                <h1 v-text="product.title"></h1>
+                <h5 v-text="product.title"></h5>
                 <p v-html="product.description"></p>
-                <p class="price">
+                <p>
                   {{product.price | formatPrice}}
                 </p>
+                <button class="default" v-on:click="addToCart">Dodaj do koszyka</button>
               </div>
           </div>
       </div>
@@ -45,6 +47,7 @@
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
 // import image from '@/assets/product-fullsize.png'
+
 export default {
   data () {
     return {
@@ -53,12 +56,13 @@ export default {
         id: 1001,
         title: 'Karma dla zwierza 10',
         description: '10 kg karmy <em> wow </em>!',
-        price: 6700,
+        price: 6700
         // src: 'img/quasar-logo-full.svg'
         // image
-        image: './assets/product-fullsize.png'
+        // image: './assets/product-fullsize.png'
         // image: './statics/product-fullsize.png'
-      }
+      },
+      cart: []
     }
   },
 
@@ -80,8 +84,17 @@ export default {
     }
   },
 
-  computed: {
+  methods: {
+    addToCart: function () {
+      this.cart.push(this.product.id)
+      console.log(this.cart)
+    }
+  },
 
+  computed: {
+    cartItemCount: function () {
+      return this.cart.length || ''
+    }
   },
 
   beforeCreate: function () {
@@ -93,6 +106,11 @@ export default {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
       console.log('**created: sitename-> ' + this.sitename)
+      console.log('**created: p.id -> ' + this.product.id)
+      console.log('**created: p.title -> ' + this.product.title)
+      console.log('**created: p.description -> ' + this.product.description)
+      console.log('**created: p.price -> ' + this.product.price)
+      // debugger
     }
   },
   beforeMount: function () {
