@@ -10,39 +10,39 @@
               </head>
 
       <div id="app">
-
               <header>
                 <div class="navbar navbar-default">
                   <div class="navbar-header">
                     <h3>{{ sitename }}</h3>
                   </div>
-                  <div class="nav navbar-nav navbar-right cart">
-                    <!-- <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout"> -->
-                      <button type="button" class="btn btn-default btn-lg">
-                      Biorę! <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span>
-                    </button>
+                      <div class="nav navbar-nav navbar-right cart">
+                             <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout">
+                                 Biorę <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span> sztuk!
+                             </button>
+                      </div>
                   </div>
-                </div>
               </header>
-
-              <div class="row">
+              <main>
+              <div class="row product">
+                <div v-if="showProduct">
                           <div class="col-md-2 col-md-offset-1">
                             <figure>
                               <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
                               <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
                             </figure>
                           </div>
-                  <div class="col-md-6 col-md-offset-2 description">
+                  <div class="col-md-7 col-md-offset-2 description">  <!-- było md-7 za wąsko -->
                     <h5 v-text="product.title"></h5>
                     <p v-html="product.description"></p>
                     <p>
                       {{product.price | formatPrice}}
                     </p>
-                    <!-- <button class="default"  v-on:click="addToCart" v-show="canAddToCart" >Dodaj do koszyka</button> -->
                     <button class="default"  v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
                     <button class="disabled" v-else >Dodaj do koszyka</button>
                   </div>
+                </div>
               </div>
+            </main>
       </div>
 </div>
 </template>
@@ -54,11 +54,12 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-      sitename: 'Magazyn WINF dla urzędasów',
+      sitename: 'Magazyn WINF dla urzENdasów',
+      showProduct: true,
       product: {
         id: 1001,
         title: 'Zestaw komputerowy',
-        description: 'Dobry do gier:<b> doopa!<b>...',
+        description: 'Dobry do gierek (edward):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 5,
         showProduct: true
@@ -94,6 +95,11 @@ export default {
       this.cart.push(this.product.id)
       console.log(this.cart)
       console.log(this.cartItemCount)
+    },
+    showCheckout () {
+      // this.showProduct = this.showProduct ? false: true;
+      this.showProduct = !this.showProduct
+      // if this.showProduct=true return 'false', if this.showProduct=false -> return 'true'
     }
   },
 
