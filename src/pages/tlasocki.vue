@@ -76,12 +76,12 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data() {
     return {
-      sitename: "Magazyn WINF dla urzENdasów",
+      sitename: 'Magazyn WINF dla urzENdasów',
       showProduct: true,
       product: {
         id: 1001,
-        title: "Zestaw komputerowy",
-        description: "Dobry do gierek (edward):<b> doopa!<b>...",
+        title: 'Zestaw komputerowy',
+        description: 'Dobry do gierek (edward):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 5,
         showProduct: true
@@ -100,16 +100,16 @@ export default {
         return '';
       }
       if (price > 99999) {
-        var priceString = (price / 100).toFixed(2).replace(".", ",");
-        var priceArray = priceString.split("").reverse();
+        var priceString = (price / 100).toFixed(2).replace('.', ',');
+        var priceArray = priceString.split('').reverse();
         var index = 3;
         while (priceArray.length > index + 3) {
-          priceArray.splice(index + 3, 0, " ;");
-          index += 4;
+          priceArray.splice(index + 3, 0, ' ;');
+          index += 4
         }
-        return priceArray.reverse().join("") + " zł";
+        return priceArray.reverse().join('') + ' zł'
       } else {
-        return (price / 100).toFixed(2).replace(".", ",") + " zł";
+        return (price / 100).toFixed(2).replace('.', ',') + ' zł'
       }
     }
   },
@@ -129,7 +129,7 @@ export default {
 
   computed: {
     cartItemCount: function() {
-      return this.cart.length || "";
+      return this.cart.length || '';
     },
     canAddToCart: function() {
       return this.product.availableInventory > this.cartItemCount;
@@ -138,7 +138,7 @@ export default {
 
   beforeCreate: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**beforeCreate');
+      console.log('**beforeCreate')
     }
   },
   created: function() {
