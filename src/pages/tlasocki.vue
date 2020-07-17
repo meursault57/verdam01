@@ -144,11 +144,14 @@ export default {
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
-      console.log('**created: sitename-> ' + this.sitename)
-      console.log('**created: p.id -> ' + this.product.id)
-      console.log('a1**created: p.title -> ' + this.product.title)
-      console.log('a1**created: p.description -> ' + this.product.description)
-      console.log('**created: p.price -> ' + this.product.price)
+      console.log('--------------------')
+      console.log('**sitename -> ' + this.sitename)
+      console.log('**p.id -> ' + this.product.id)
+      console.log('**p.title -> ' + this.product.title)
+      console.log('**p.description -> ' + this.product.description)
+      console.log('**p.price -> ' + this.product.price)
+      console.log('**p.availableInventory -> ' + this.product.availableInventory)
+      console.log('--------------------')
       // debugger
     }
   },
