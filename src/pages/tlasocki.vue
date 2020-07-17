@@ -3,26 +3,28 @@
               <head>
                 <title>Skład dla zwierzaków :: Vue.js</title>
                 <!-- <script src="https://unpkg.com/vue"></script> -->
-                <link rel="stylesheet"  href="assets/css/app.css" />
+                <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
                 <meta charset="UTF-8">
               </head>
 
       <div id="app">
+
               <header>
                 <div class="navbar navbar-default">
                   <div class="navbar-header">
-                    <!--<h1 v-text="sitename"></h1>-->
-                    <div class="self-center full-width no-outline">{{ sitename }}</div>
-                    <div class="nav navbar-nav navbar-right cart">
-                      <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span>
-                    </div>
-
+                    <h3>{{ sitename }}</h3>
+                  </div>
+                  <div class="nav navbar-nav navbar-right cart">
+                    <!-- <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout"> -->
+                      <button type="button" class="btn btn-default btn-lg">
+                      Biorę! <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span>
+                    </button>
                   </div>
                 </div>
               </header>
+
               <div class="row">
                           <div class="col-md-2 col-md-offset-1">
                             <figure>
@@ -36,7 +38,9 @@
                     <p>
                       {{product.price | formatPrice}}
                     </p>
-                    <button class="default" v-on:click="addToCart">Dodaj do koszyka</button>
+                    <!-- <button class="default"  v-on:click="addToCart" v-show="canAddToCart" >Dodaj do koszyka</button> -->
+                    <button class="default"  v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
+                    <button class="disabled" v-else >Dodaj do koszyka</button>
                   </div>
               </div>
       </div>
@@ -50,12 +54,14 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-      sitename: 'Skład dla bydlaków...',
+      sitename: 'Magazyn WINF dla urzędasów',
       product: {
         id: 1001,
-        title: 'Karma dla zwierza 10',
-        description: '10 kg karmy <em> wow </em>!',
-        price: 6700
+        title: 'Zestaw komputerowy',
+        description: 'Dobry do gier:<b> doopa!<b>...',
+        price: 6700,
+        availableInventory: 5,
+        showProduct: true
         // src: 'img/quasar-logo-full.svg'
         // image
         // image: './assets/product-fullsize.png'
@@ -87,12 +93,16 @@ export default {
     addToCart: function () {
       this.cart.push(this.product.id)
       console.log(this.cart)
+      console.log(this.cartItemCount)
     }
   },
 
   computed: {
     cartItemCount: function () {
       return this.cart.length || ''
+    },
+    canAddToCart: function () {
+      return this.product.availableInventory > this.cartItemCount
     }
   },
 
@@ -144,3 +154,36 @@ export default {
   }
 }
 </script>
+
+<style>
+header h1{
+    padding: 10px 20px;
+}
+
+body {
+    max-width: 970px;
+}
+.cart {
+  padding: 20px 50px;
+}
+.boxes {
+  margin-top: 20px;
+}
+
+.verify {
+  margin-top: 20px;
+}
+
+.submit {
+  margin-top:20px;
+  float: right;
+}
+
+.pagecheckout {
+  padding: 20px 50px;
+}
+.description {
+  font-size: 150%;
+  margin-top:50px;
+}
+</style>
