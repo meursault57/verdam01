@@ -70,7 +70,7 @@
 </template>
 
 <script>
-var APP_LOG_LIFECYCLE_EVENTS = true;
+var APP_LOG_LIFECYCLE_EVENTS = true
 // import image from '@/assets/product-fullsize.png'
 
 export default {
@@ -97,7 +97,7 @@ export default {
   filters: {
     formatPrice(price) {
       if (!parseInt(price)) {
-        return "";
+        return '';
       }
       if (price > 99999) {
         var priceString = (price / 100).toFixed(2).replace(".", ",");
@@ -138,7 +138,7 @@ export default {
 
   beforeCreate: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**beforeCreate");
+      console.log('**beforeCreate');
     }
   },
   created: function() {
