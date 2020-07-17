@@ -145,7 +145,7 @@ export default {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
       console.log('--------------------')
-      console.log('**sitename -> ' + this.sitename)
+      console.log('**sitename-> ' + this.sitename)
       console.log('**p.id -> ' + this.product.id)
       console.log('**p.title -> ' + this.product.title)
       console.log('**p.description -> ' + this.product.description)
