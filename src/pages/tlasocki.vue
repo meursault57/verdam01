@@ -74,7 +74,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 // import image from '@/assets/product-fullsize.png'
 
 export default {
-  data() {
+  data () {
     return {
       sitename: 'Magazyn WINF dla urzENdasów',
       showProduct: true,
@@ -91,20 +91,20 @@ export default {
         // image: './statics/product-fullsize.png'
       },
       cart: []
-    };
+    }
   },
 
   filters: {
-    formatPrice(price) {
+    formatPrice (price) {
       if (!parseInt(price)) {
-        return '';
+        return ''
       }
       if (price > 99999) {
-        var priceString = (price / 100).toFixed(2).replace('.', ',');
-        var priceArray = priceString.split('').reverse();
-        var index = 3;
+        var priceString = (price / 100).toFixed(2).replace('.', ',')
+        var priceArray = priceString.split('').reverse()
+        var index = 3
         while (priceArray.length > index + 3) {
-          priceArray.splice(index + 3, 0, ' ;');
+          priceArray.splice(index + 3, 0, ' ;')
           index += 4
         }
         return priceArray.reverse().join('') + ' zł'
@@ -115,74 +115,74 @@ export default {
   },
 
   methods: {
-    addToCart: function() {
-      this.cart.push(this.product.id);
-      console.log(this.cart);
-      console.log(this.cartItemCount);
+    addToCart: function () {
+      this.cart.push(this.product.id)
+      console.log(this.cart)
+      console.log(this.cartItemCount)
     },
-    showCheckout() {
+    showCheckout () {
       // this.showProduct = this.showProduct ? false: true;
-      this.showProduct = !this.showProduct;
+      this.showProduct = !this.showProduct
       // if this.showProduct=true return 'false', if this.showProduct=false -> return 'true'
     }
   },
 
   computed: {
-    cartItemCount: function() {
-      return this.cart.length || '';
+    cartItemCount: function () {
+      return this.cart.length || ''
     },
-    canAddToCart: function() {
-      return this.product.availableInventory > this.cartItemCount;
+    canAddToCart: function () {
+      return this.product.availableInventory > this.cartItemCount
     }
   },
 
-  beforeCreate: function() {
+  beforeCreate: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('**beforeCreate')
     }
   },
-  created: function() {
+  created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
-      console.log("**created: sitename-> " + this.sitename);
-      console.log("**created: p.id -> " + this.product.id);
-      console.log("**created: p.title -> " + this.product.title);
-      console.log("**created: p.description -> " + this.product.description);
-      console.log("**created: p.price -> " + this.product.price);
+      console.log('**created: sitename-> ' + this.sitename)
+      console.log('**created: p.id -> ' + this.product.id)
+      console.log('a1**created: p.title -> ' + this.product.title)
+      console.log('a1**created: p.description -> ' + this.product.description)
+      console.log('**created: p.price -> ' + this.product.price)
       // debugger
     }
   },
-  beforeMount: function() {
+  beforeMount: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**beforeMount");
+      console.log('**beforeMount')
     }
   },
-  mounted: function() {
+  mounted: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**mounted");
+      console.log('**mounted')
     }
   },
-  beforeUpdate: function() {
+  beforeUpdate: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**beforeUpdate");
+      console.log('**beforeUpdate')
     }
   },
-  updated: function() {
+  updated: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**updated");
+      console.log('absolute-bottom**updated')
     }
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**beforeDestroy");
+      console.log('**beforeDestroy')
     }
   },
-  destroyed: function() {
+  destroyed: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log("**destroyed");
+      console.log('**destroyed')
     }
   }
-};
+}
 </script>
 
 <style>
