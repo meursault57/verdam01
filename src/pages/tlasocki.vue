@@ -1,65 +1,87 @@
 <template>
-<div>
-              <head>
-                <title>Skład dla zwierzaków :: Vue.js</title>
-                <!-- <script src="https://unpkg.com/vue"></script> -->
-                <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-                <meta charset="UTF-8">
-              </head>
+  <div>
+    <head>
+      <title>Skład dla zwierzaków :: Vue.js</title>
+      <!-- <script src="https://unpkg.com/vue"></script> -->
+      <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"
+      />
+      <meta charset="UTF-8" />
+    </head>
 
-      <div id="app">
-              <header>
-                <div class="navbar navbar-default">
-                  <div class="navbar-header">
-                    <h3>{{ sitename }}</h3>
-                  </div>
-                      <div class="nav navbar-nav navbar-right cart">
-                             <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout">
-                                 Biorę <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span> sztuk!
-                             </button>
-                      </div>
-                  </div>
-              </header>
-              <main>
-              <div class="row product">
-                <div v-if="showProduct">
-                          <div class="col-md-2 col-md-offset-1">
-                            <figure>
-                              <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                              <img style="height:90px; width:90px;" src='~assets/quasar-logo-full.svg'>
-                            </figure>
-                          </div>
-                  <div class="col-md-7 col-md-offset-2 description">  <!-- było md-7 za wąsko -->
-                    <h5 v-text="product.title"></h5>
-                    <p v-html="product.description"></p>
-                    <p>
-                      {{product.price | formatPrice}}
-                    </p>
-                    <button class="default"  v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
-                    <button class="disabled" v-else >Dodaj do koszyka</button>
-                  </div>
-                </div>
-              </div>
-            </main>
-      </div>
-</div>
+    <div id="app">
+      <header>
+        <div class="navbar navbar-default">
+          <div class="navbar-header">
+            <h3>{{ sitename }}</h3>
+          </div>
+          <div class="nav navbar-nav navbar-right cart">
+            <button
+              type="button"
+              class="btn btn-default btn-lg"
+              v-on:click="showCheckout"
+            >
+              Biorę
+              <span class="glyphicon glyphicon-shopping-cart">{{
+                cartItemCount
+              }}</span>
+              szt.!
+            </button>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="row product">
+          <div v-if="showProduct">
+            <div class="col-md-2 col-md-offset-1">
+              <figure>
+                <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
+                <img
+                  style="height:90px; width:90px;"
+                  src="~assets/quasar-logo-full.svg"
+                />
+              </figure>
+            </div>
+            <div class="col-md-7 col-md-offset-2 description">
+              <!-- było md-7 za wąsko -->
+              <h5 v-text="product.title"></h5>
+              <p v-html="product.description"></p>
+              <p>
+                {{ product.price | formatPrice }}
+              </p>
+              <button
+                class="default"
+                v-on:click="addToCart"
+                v-if="canAddToCart"
+              >
+                Dodaj do koszyka
+              </button>
+              <button class="disabled" v-else>Dodaj do koszyka</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
 </template>
 
 <script>
-var APP_LOG_LIFECYCLE_EVENTS = true
+var APP_LOG_LIFECYCLE_EVENTS = true;
 // import image from '@/assets/product-fullsize.png'
 
 export default {
-  data () {
+  data() {
     return {
-      sitename: 'Magazyn WINF dla urzENdasów',
+      sitename: "Magazyn WINF dla urzENdasów",
       showProduct: true,
       product: {
         id: 1001,
-        title: 'Zestaw komputerowy',
-        description: 'Dobry do gierek (edward):<b> doopa!<b>...',
+        title: "Zestaw komputerowy",
+        description: "Dobry do gierek (edward):<b> doopa!<b>...",
         price: 6700,
         availableInventory: 5,
         showProduct: true
@@ -69,105 +91,107 @@ export default {
         // image: './statics/product-fullsize.png'
       },
       cart: []
-    }
+    };
   },
 
   filters: {
-    formatPrice (price) {
-      if (!parseInt(price)) { return '' }
+    formatPrice(price) {
+      if (!parseInt(price)) {
+        return "";
+      }
       if (price > 99999) {
-        var priceString = (price / 100).toFixed(2).replace('.', ',')
-        var priceArray = priceString.split('').reverse()
-        var index = 3
+        var priceString = (price / 100).toFixed(2).replace(".", ",");
+        var priceArray = priceString.split("").reverse();
+        var index = 3;
         while (priceArray.length > index + 3) {
-          priceArray.splice(index + 3, 0, ' ;')
-          index += 4
+          priceArray.splice(index + 3, 0, " ;");
+          index += 4;
         }
-        return priceArray.reverse().join('') + ' zł'
+        return priceArray.reverse().join("") + " zł";
       } else {
-        return (price / 100).toFixed(2).replace('.', ',') + ' zł'
+        return (price / 100).toFixed(2).replace(".", ",") + " zł";
       }
     }
   },
 
   methods: {
-    addToCart: function () {
-      this.cart.push(this.product.id)
-      console.log(this.cart)
-      console.log(this.cartItemCount)
+    addToCart: function() {
+      this.cart.push(this.product.id);
+      console.log(this.cart);
+      console.log(this.cartItemCount);
     },
-    showCheckout () {
+    showCheckout() {
       // this.showProduct = this.showProduct ? false: true;
-      this.showProduct = !this.showProduct
+      this.showProduct = !this.showProduct;
       // if this.showProduct=true return 'false', if this.showProduct=false -> return 'true'
     }
   },
 
   computed: {
-    cartItemCount: function () {
-      return this.cart.length || ''
+    cartItemCount: function() {
+      return this.cart.length || "";
     },
-    canAddToCart: function () {
-      return this.product.availableInventory > this.cartItemCount
+    canAddToCart: function() {
+      return this.product.availableInventory > this.cartItemCount;
     }
   },
 
-  beforeCreate: function () {
+  beforeCreate: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**beforeCreate')
+      console.log("**beforeCreate");
     }
   },
-  created: function () {
+  created: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
-      console.log('**created: sitename-> ' + this.sitename)
-      console.log('**created: p.id -> ' + this.product.id)
-      console.log('**created: p.title -> ' + this.product.title)
-      console.log('**created: p.description -> ' + this.product.description)
-      console.log('**created: p.price -> ' + this.product.price)
+      console.log("**created: sitename-> " + this.sitename);
+      console.log("**created: p.id -> " + this.product.id);
+      console.log("**created: p.title -> " + this.product.title);
+      console.log("**created: p.description -> " + this.product.description);
+      console.log("**created: p.price -> " + this.product.price);
       // debugger
     }
   },
-  beforeMount: function () {
+  beforeMount: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**beforeMount')
+      console.log("**beforeMount");
     }
   },
-  mounted: function () {
+  mounted: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**mounted')
+      console.log("**mounted");
     }
   },
-  beforeUpdate: function () {
+  beforeUpdate: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**beforeUpdate')
+      console.log("**beforeUpdate");
     }
   },
-  updated: function () {
+  updated: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**updated')
+      console.log("**updated");
     }
   },
-  beforeDestroy: function () {
+  beforeDestroy: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**beforeDestroy')
+      console.log("**beforeDestroy");
     }
   },
-  destroyed: function () {
+  destroyed: function() {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('**destroyed')
+      console.log("**destroyed");
     }
   }
-}
+};
 </script>
 
 <style>
-header h1{
-    padding: 10px 20px;
+header h1 {
+  padding: 10px 20px;
 }
 
 body {
-    max-width: 970px;
+  max-width: 970px;
 }
 .cart {
   padding: 20px 50px;
@@ -181,7 +205,7 @@ body {
 }
 
 .submit {
-  margin-top:20px;
+  margin-top: 20px;
   float: right;
 }
 
@@ -190,6 +214,6 @@ body {
 }
 .description {
   font-size: 150%;
-  margin-top:50px;
+  margin-top: 50px;
 }
 </style>
