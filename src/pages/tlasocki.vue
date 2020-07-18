@@ -105,9 +105,9 @@
                       <strong>Województwo:</strong>
                       <select v-model="order.state" class="form-control">
                         <option disabled value="">Województwo</option>
-                        <!-- <option v-for="(state, key) in states" v-bind:value="state">
+                        <option v-for="(state, key) in states" v-bind:key="state">
                           {{key}}
-                        </option>-->
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -176,7 +176,23 @@ export default {
       showProduct: true,
       order: {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        address: '',
+        city: '',
+        zip: '',
+        state: '',
+        method: 'Adres domowy',
+        business: 'Adres firmowy',
+        home: 'Adres domowy',
+        gift: 'Wyślij jako prezent',
+        sendGift: 'Wyślij jako prezent',
+        dontSendGift: 'Nie wysyłaj jako prezentu'
+      },
+      states: {
+        DL: 'Dolnośląskie',
+        KP: 'Kujawsko-pomorskie',
+        LB: 'Lubelskie',
+        LU: 'Lubuskie'
       },
       product: {
         id: 1001,
@@ -223,6 +239,10 @@ export default {
       // this.showProduct = this.showProduct ? false: true;
       this.showProduct = !this.showProduct
       // if this.showProduct=true return 'false', if this.showProduct=false -> return 'true'
+    },
+    submitForm () {
+      alert('Wysłano formularz!')
+      // …
     }
   },
 
@@ -318,4 +338,9 @@ body {
   font-size: 150%;
   margin-top: 50px;
 }
+/*
+pre {
+    white-space: pre-line;
+  }
+*/
 </style>
