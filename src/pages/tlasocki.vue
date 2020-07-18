@@ -101,7 +101,7 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                       <strong>Województwo:</strong>
                       <select v-model="order.state" class="form-control">
                         <option disabled value="">Województwo</option>
@@ -113,7 +113,7 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
+                    <div class="col-md-4 col-md-offset-4">
                       <strong>Kod pocztowy:</strong>
                       <input v-model="order.zip" class="form-control" type="number" />
                     </div>
