@@ -144,14 +144,14 @@
                             </div>
                               <div class="col-md-12 verify">
                                       <pre>
-                                                Imię: {{order.firstName}}
-                                            Nazwisko: {{order.lastName}}
-                                              Adres: {{order.address}}
-                                        Miejscowość: {{order.city}}
-                                        Kod pocztowy: {{order.zip}}
-                                        Województwo: {{order.state}}
-                                              Metoda: {{order.method}}
-                                            Prezent: {{order.gift}}
+        Imię: {{order.firstName}}
+    Nazwisko: {{order.lastName}}
+       Adres: {{order.address}}
+ Miejscowość: {{order.city}}
+Kod pocztowy: {{order.zip}}
+ Województwo: {{order.state}}
+      Metoda: {{order.method}}
+     Prezent: {{order.gift}}
                                       </pre>
                               </div>
                       </div>
