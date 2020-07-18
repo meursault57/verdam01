@@ -1,17 +1,17 @@
 <template>
   <div>
-    <head>
-      <title>Skład dla zwierzaków :: Vue.js</title>
-      <!-- <script src="https://unpkg.com/vue"></script> -->
-      <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
-      <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous"
-      />
-      <meta charset="UTF-8" />
-    </head>
+              <head>
+                <title>Skład dla zwierzaków :: Vue.js</title>
+                <!-- <script src="https://unpkg.com/vue"></script> -->
+                <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
+                <link
+                  rel="stylesheet"
+                  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                  crossorigin="anonymous"
+                />
+                <meta charset="UTF-8" />
+              </head>
 
     <div id="app">
       <header>
@@ -34,40 +34,135 @@
           </div>
         </div>
       </header>
+
       <main>
         <div class="row product">
-          <div v-if="showProduct">
-            <div class="col-md-2 col-md-offset-1">
-              <figure>
-                <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                <img
-                  style="height:90px; width:90px;"
-                  src="~assets/quasar-logo-full.svg"
-                />
-              </figure>
-            </div>
-            <div class="col-md-7 col-md-offset-2 description">
-              <!-- było md-7 za wąsko -->
-              <h5 v-text="product.title"></h5>
-              <p v-html="product.description"></p>
-              <p>
-                {{ product.price | formatPrice }}
-              </p>
-              <button
-                class="default"
-                v-on:click="addToCart"
-                v-if="canAddToCart"
-              >
-                Dodaj do koszyka
-              </button>
-              <button class="disabled" v-else>Dodaj do koszyka</button>
-            </div>
-          </div>
-        </div>
-      </main>
+                    <div v-if="showProduct">
+                      <div class="col-md-2 col-md-offset-1">
+                        <figure>
+                          <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
+                          <img
+                            style="height:90px; width:90px;"
+                            src="~assets/quasar-logo-full.svg"
+                          />
+                        </figure>
+                      </div>
+                      <div class="col-md-7 col-md-offset-2 description">
+                        <!-- było md-7 za wąsko -->
+                        <h5 v-text="product.title"></h5>
+                        <p v-html="product.description"></p>
+                        <p>
+                          {{ product.price | formatPrice }}
+                        </p>
+                        <button
+                          class="default"
+                          v-on:click="addToCart"
+                          v-if="canAddToCart"
+                        >
+                          Dodaj do koszyka
+                        </button>
+                        <button class="disabled" v-else>Dodaj do koszyka</button>
+                      </div>
+                    </div>
+          <div v-else>
+          <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-info">
+              <div class="panel-heading">Formularz zamówienia</div>
+                <div class="panel-body">
+
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <h4><strong>Podaj informacje o sobie</strong></h4>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <strong>Imię:</strong>
+                        <input v-model.trim="order.firstName" class="form-control" />
+                      </div>
+                      <div class="col-md-6">
+                        <strong>Nazwisko:</strong>
+                        <input v-model.trim="order.lastName" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-12"><strong>Adres:</strong></div>
+                    <div class="col-md-12">
+                      <input v-model.trim="order.address" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-12"><strong>Miejscowość:</strong></div>
+                    <div class="col-md-12">
+                      <input v-model.trim="order.city" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-2">
+                      <strong>Województwo:</strong>
+                      <select v-model="order.state" class="form-control">
+                        <option disabled value="">Województwo</option>
+                        <!-- <option v-for="(state, key) in states" v-bind:value="state">
+                          {{key}}
+                        </option>-->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">
+                      <strong>Kod pocztowy:</strong>
+                      <input v-model="order.zip" class="form-control" type="number" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6 boxes">
+                      <input type="checkbox" id="gift" value="true"
+                        v-bind:true-value="order.sendGift"
+                        v-bind:false-value="order.dontSendGift"
+                        v-model="order.gift">
+                      <label for="gift">Wysłać jako prezent?</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6 boxes">
+                      <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
+                      <label for="home">Domowy</label>
+                      <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
+                      <label for="business">Firmowy</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
+                          </div>
+                            <div class="col-md-12 verify">
+                              <pre>
+                                        Imię: {{order.firstName}}
+                                    Nazwisko: {{order.lastName}}
+                                      Adres: {{order.address}}
+                                Miejscowość: {{order.city}}
+                                Kod pocztowy: {{order.zip}}
+                                Województwo: {{order.state}}
+                                      Metoda: {{order.method}}
+                                    Prezent: {{order.gift}}
+                              </pre>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    </main>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -79,6 +174,10 @@ export default {
     return {
       sitename: 'Magazyn WINF dla urzENdasów',
       showProduct: true,
+      order: {
+        firstName: '',
+        lastName: ''
+      },
       product: {
         id: 1001,
         title: 'Zestaw komputerowy',
