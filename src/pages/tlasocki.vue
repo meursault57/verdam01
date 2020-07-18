@@ -14,26 +14,26 @@
               </head>
 
     <div id="app">
-      <header>
-        <div class="navbar navbar-default">
-          <div class="navbar-header">
-            <h3>{{ sitename }}</h3>
-          </div>
-          <div class="nav navbar-nav navbar-right cart">
-            <button
-              type="button"
-              class="btn btn-default btn-lg"
-              v-on:click="showCheckout"
-            >
-              Biorę
-              <span class="glyphicon glyphicon-shopping-cart">{{
-                cartItemCount
-              }}</span>
-              szt.!
-            </button>
-          </div>
-        </div>
-      </header>
+                          <header>
+                            <div class="navbar navbar-default">
+                              <div class="navbar-header">
+                                <h3>{{ sitename }}</h3>
+                              </div>
+                              <div class="nav navbar-nav navbar-right cart">
+                                <button
+                                  type="button"
+                                  class="btn btn-default btn-lg"
+                                  v-on:click="showCheckout"
+                                >
+                                  Biorę
+                                  <span class="glyphicon glyphicon-shopping-cart">{{
+                                    cartItemCount
+                                  }}</span>
+                                  szt.!
+                                </button>
+                              </div>
+                            </div>
+                          </header>
 
       <main>
         <div class="row product">
@@ -64,7 +64,7 @@
                         <button class="disabled" v-else>Dodaj do koszyka</button>
                       </div>
                     </div>
-          <div v-else>
+        <div v-else>
           <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
               <div class="panel-heading">Formularz zamówienia</div>
@@ -138,29 +138,29 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="col-md-6">
-                      <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
-                          </div>
-                            <div class="col-md-12 verify">
-                              <pre>
-                                        Imię: {{order.firstName}}
-                                    Nazwisko: {{order.lastName}}
-                                      Adres: {{order.address}}
-                                Miejscowość: {{order.city}}
-                                Kod pocztowy: {{order.zip}}
-                                Województwo: {{order.state}}
-                                      Metoda: {{order.method}}
-                                    Prezent: {{order.gift}}
-                              </pre>
+                      <div class="form-group">
+                          <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
                             </div>
-                          </div>
-                    </div>
-                  </div>
+                              <div class="col-md-12 verify">
+                                      <pre>
+                                                Imię: {{order.firstName}}
+                                            Nazwisko: {{order.lastName}}
+                                              Adres: {{order.address}}
+                                        Miejscowość: {{order.city}}
+                                        Kod pocztowy: {{order.zip}}
+                                        Województwo: {{order.state}}
+                                              Metoda: {{order.method}}
+                                            Prezent: {{order.gift}}
+                                      </pre>
+                              </div>
+                      </div>
                 </div>
               </div>
-    </div>
-    </main>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
 </template>
