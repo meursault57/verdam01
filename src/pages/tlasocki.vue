@@ -101,7 +101,7 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                       <strong>Województwo:</strong>
                       <select v-model="order.state" class="form-control">
                         <option disabled value="">Województwo</option>
@@ -113,26 +113,27 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-4 col-md-offset-3">
                       <strong>Kod pocztowy:</strong>
                       <input v-model="order.zip" class="form-control" type="number" />
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-6 boxes">
+                    <div class="col-md-5 boxes">
                       <input type="checkbox" id="gift" value="true"
                         v-bind:true-value="order.sendGift"
                         v-bind:false-value="order.dontSendGift"
                         v-model="order.gift">
-                      <label for="gift">Wysłać jako prezent?</label>
+                      <label style= "font-size:12px; margin-left: 5px;" for="gift">Wysłać jako prezent?</label>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <div class="col-md-6 boxes">
-                      <input type="radio" id="home" v-bind:value="order.home" v-model="order.method">
-                      <label for="home">Domowy</label>
+                    <div class="col-md-7 boxes">
+                      <label>Adres: </label>
+                      <input style= "margin-left:10px;" type="radio" id="home" v-bind:value="order.home" v-model="order.method">
+                      <label style= "margin-right:10px;" for="home">Domowy</label>
                       <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
                       <label for="business">Firmowy</label>
                     </div>
@@ -186,7 +187,7 @@ export default {
         home: 'Adres domowy',
         gift: 'Wyślij jako prezent',
         sendGift: 'Wyślij jako prezent',
-        dontSendGift: 'Nie wysyłaj jako prezentu'
+        dontSendGift: 'Nie, można owinąć w gazetę'
       },
       states: {
         DL: 'Dolnośląskie',
