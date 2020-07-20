@@ -144,7 +144,7 @@
                             <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
                             </div>
                               <div class="col-md-12 verify">
-                                      <pre>
+                                      <pre style= "background-color: #efebe9;">
         Imię: {{order.firstName}}
     Nazwisko: {{order.lastName}}
        Adres: {{order.address}}
@@ -168,15 +168,15 @@ Kod pocztowy: {{order.zip}}
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-// import image from '@/assets/product-fullsize.png'
+// import image from './assets/product-fullsize.png'
 
 export default {
   data () {
     return {
-      sitename: 'Magazyn WINF dla urzENdasów',
+      sitename: 'Magazyn WINF dla urz...sów',
       showProduct: true,
       order: {
-        firstName: '',
+        firstName: 'Tomasz',
         lastName: '',
         address: '',
         city: '',
@@ -190,6 +190,7 @@ export default {
         dontSendGift: 'Nie, można owinąć w gazetę'
       },
       states: {
+        ZP: 'Zachodniopomorskie',
         DL: 'Dolnośląskie',
         KP: 'Kujawsko-pomorskie',
         LB: 'Lubelskie',
@@ -198,7 +199,7 @@ export default {
       product: {
         id: 1001,
         title: 'Zestaw komputerowy',
-        description: 'Dobry do gierek (edward):<b> doopa!<b>...',
+        description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 5
         // src: 'img/quasar-logo-full.svg'
@@ -292,7 +293,7 @@ export default {
   },
   updated: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      console.log('absolute-bottom**updated')
+      console.log('**updated -> absolute-bottom')
     }
   },
   beforeDestroy: function () {
