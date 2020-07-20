@@ -17,7 +17,7 @@
       <p>Wynik X+Y</p>
   </div>
 </div>
-</template>>
+</template>
 
 <script>
 export default {
