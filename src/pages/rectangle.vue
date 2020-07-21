@@ -4,32 +4,30 @@
           <title>Obliczanie pola prostokąta</title>
           <!-- <script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript"></script> -->
         </head>
-            <div id="app">
-                <p>
-                  Pole wynosi:
-                </p>
+            <div>
+                <div>Pole wynosi: {{ 44444 }}</div>
                 <p>
                   <button v-on:click="length += 1">Inkrementuj długość</button>
                   <button v-on:click="width += 1">Inkrementuj szerokość</button>
                 </p>
             </div>
-      </div>
-  </template>
+    </div>
+</template>
 
 <script>
 export default {
-      data () {
-        return {
-        length: 5,
-        width: 3
-      }
-      },
+  data () {
+    return {
+      length: 5,
+      width: 3
+  }
+},
 
-      computed: {
-        area: function() {
-          return this.width * this.length;
-        }
-      },
+computed: {
+  area: function() {
+    return this.width * this.length;
+  }
+},
 
       watch: {
         length: function(newVal, oldVal) {
@@ -58,5 +56,3 @@ export default {
       }
     }
   </script>
-
-

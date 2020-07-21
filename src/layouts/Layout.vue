@@ -52,52 +52,20 @@
           </q-item-section>
         </q-item>
 
+                <q-item
+          clickable
+          to="/rectangle"
+          exact
+        >
+          <q-item-section>
+            <q-icon name="highlight_alt" :key="getIconSize" :size="getIconSize" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{rectangleTitle}}</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-separator/>
-<!--
-        <q-item
-          clickable
-          to="/helppage"
-          exact
-        >
-          <q-item-section>
-            <q-icon name="help" :key="getIconSize" :size="getIconSize" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{helpTitle}}</q-item-label>
-          </q-item-section>
-        </q-item>
 
-          <q-item
-          clickable
-          to="/donatepage"
-          exact
-        >
-          <q-item-section>
-            <q-icon name="euro_symbol" :key="getIconSize" :size="getIconSize" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{donateTitle}}</q-item-label>
-          </q-item-section>
-        </q-item>
-
-                  <q-item
-          clickable
-          to="/feedbackpage"
-          exact
-        >
-          <q-item-section>
-            <q-icon name="feedback" :key="getIconSize" :size="getIconSize" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{feedbackTitle}}</q-item-label>
-          </q-item-section>
-        </q-item>
--->
-<!--
-        <q-item>
-            <svg id="barDemo"></svg>
-        </q-item>
--->
         <q-item>
           <div>
             <canvas id="xxx" width="200" height="4000"></canvas>
@@ -130,7 +98,8 @@ export default {
       helpTitle: 'Samouczek',
       calcTitle: 'Calculator',
       donateTitle: 'Donate',
-      feedbackTitle: 'FeedBack'
+      feedbackTitle: 'FeedBack',
+      rectangleTitle: 'Rectangle'
     }
   },
 
