@@ -5,7 +5,8 @@ const routes = [
     component: () => import('layouts/Layout.vue'),
     children: [
       { path: '', component: () => import('pages/tlasocki.vue') },
-      { path: 'calcpage', component: () => import('pages/calcpage.vue') }
+      { path: 'calcpage', component: () => import('pages/calcpage.vue') },
+      { path: 'rectangle', component: () => import('pages/rectangle.vue') }
     ]
   }
   /*
