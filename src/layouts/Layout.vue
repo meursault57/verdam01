@@ -32,7 +32,7 @@
           exact
         >
           <q-item-section>
-            <q-icon name="print" :key="getIconSize" :size="getIconSize" />
+            <q-icon name="anchor" :key="getIconSize" :size="getIconSize" />
           </q-item-section>
           <q-item-section>
             <q-item-label>{{homeTitle}}</q-item-label>
@@ -94,7 +94,7 @@ export default {
       // appVersion: Vue.prototype.$version,
       // deploymentEnv: Vue.prototype.$deploymentEnv === 'test' ? 'TEST' : '',
       drawer: true,
-      homeTitle: 'Detale zabawy...',
+      homeTitle: 'Pierdoły...',
       helpTitle: 'Samouczek',
       calcTitle: 'Calculator',
       donateTitle: 'Donate',
@@ -109,10 +109,10 @@ export default {
       let retTitle = ''
       switch (this.$route.fullPath) {
         case '/':
-          retTitle = this.homeTitle
+          retTitle = '' // this.homeTitle
           break
-        case '/helppage':
-          retTitle = this.helpTitle
+        case '/rectangle':
+          retTitle = this.rectangleTitle
           break
         case '/calcpage':
           retTitle = this.calcTitle
