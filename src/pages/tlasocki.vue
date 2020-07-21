@@ -185,7 +185,7 @@ export default {
         method: 'Adres domowy',
         business: 'Adres firmowy',
         home: 'Adres domowy',
-        gift: 'Wyślij jako prezent',
+        gift: 'Wyślij jako prezent!',
         sendGift: 'Wyślij jako prezent',
         dontSendGift: 'Nie, można owinąć w gazetę'
       },
