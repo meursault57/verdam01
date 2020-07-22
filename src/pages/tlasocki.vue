@@ -26,9 +26,7 @@
                                   v-on:click="showCheckout"
                                 >
                                   Biorę
-                                  <span class="glyphicon glyphicon-shopping-cart">{{
-                                    cartItemCount
-                                  }}</span>
+                                  <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount }}</span>
                                   szt.!
                                 </button>
                               </div>
@@ -172,11 +170,11 @@ export default {
       sitename: 'Magazyn WINF dla urz...sów',
       showProduct: true,
       order: {
-        firstName: 'Tomasz',
-        lastName: '',
-        address: '',
-        city: '',
-        zip: '',
+        firstName: 'Zenobiusz',
+        lastName: 'Glatz',
+        address: 'ul. Brzęczyszczykiewicza 4 / 4',
+        city: 'Chrząszczyrzewoszyce gmina Grzmiszczosławice powiat Łękołody',
+        zip: '71244',
         state: '',
         method: 'Adres domowy',
         business: 'Adres firmowy',

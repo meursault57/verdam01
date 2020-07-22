@@ -5,9 +5,9 @@
           <!-- <script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript"></script> -->
         </head>
             <div>
-                <div>Szerokość: {{ length }}</div>
-                <div>Wysokość:  {{ width }}</div>
-                <div>Pole wynosi: {{ area }}</div>
+                <div>Szerokość:   {{ length }}</div>
+                <div>Wysokość:    {{ width  }}</div>
+                <div>Pole wynosi: {{ area   }}</div>
                 <p></p>
                 <p>
                   <button v-on:click="length += 1">Inkrementuj szerokość </button>
