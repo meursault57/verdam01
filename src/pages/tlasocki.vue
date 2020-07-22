@@ -65,101 +65,97 @@
                       </div>
                     </div>
         <div v-else>
-          <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-info">
-              <div class="panel-heading">Formularz zamówienia</div>
-                <div class="panel-body">
+                                  <div class="col-md-10 col-md-offset-1">
+                                    <div class="panel panel-info"> <!-- Panel info -->
+                                      <div class="panel-heading">Formularz zamówienia</div>
+                                        <div class="panel-body">
 
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <h4><strong>Podaj informacje o sobie</strong></h4>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-md-6">
-                        <strong>Imię:</strong>
-                        <input v-model.trim="order.firstName" class="form-control" />
-                      </div>
-                      <div class="col-md-6">
-                        <strong>Nazwisko:</strong>
-                        <input v-model.trim="order.lastName" class="form-control" />
-                      </div>
-                    </div>
-                  </div>
+                                          <div class="form-group">
+                                            <div class="col-md-12">
+                                              <h4><strong>Podaj informacje o sobie</strong></h4>
+                                            </div>
+                                            <div class="form-group">
+                                              <div class="col-md-6">
+                                                <strong>Imię:</strong>
+                                                <input v-model.trim="order.firstName" class="form-control" />
+                                              </div>
+                                              <div class="col-md-6">
+                                                <strong>Nazwisko:</strong>
+                                                <input v-model.trim="order.lastName" class="form-control" />
+                                              </div>
+                                            </div>
+                                          </div>
 
-                  <div class="form-group">
-                    <div class="col-md-12"><strong>Adres:</strong></div>
-                    <div class="col-md-12">
-                      <input v-model.trim="order.address" class="form-control" />
-                    </div>
-                  </div>
+                                          <div class="form-group">
+                                            <div class="col-md-12"><strong>Adres:</strong></div>
+                                            <div class="col-md-12">
+                                              <input v-model.trim="order.address" class="form-control" />
+                                            </div>
+                                          </div>
 
-                  <div class="form-group">
-                    <div class="col-md-12"><strong>Miejscowość:</strong></div>
-                    <div class="col-md-12">
-                      <input v-model.trim="order.city" class="form-control" />
-                    </div>
-                  </div>
+                                          <div class="form-group">
+                                            <div class="col-md-12"><strong>Miejscowość:</strong></div>
+                                            <div class="col-md-12">
+                                              <input v-model.trim="order.city" class="form-control" />
+                                            </div>
+                                          </div>
 
-                  <div class="form-group">
-                    <div class="col-md-5">
-                      <strong>Województwo:</strong>
-                      <select v-model="order.state" class="form-control">
-                        <option disabled value="">Województwo</option>
-                        <option v-for="(state, key) in states" v-bind:key="state">
-                          {{key}}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
+                                          <div class="form-group">
+                                            <div class="col-md-6">
+                                              <strong>Województwo:</strong>
+                                              <select v-model="order.state" class="form-control">
+                                                <option disabled value="">Województwo</option>
+                                                <option v-for="(state, key) in states" v-bind:key="state">
+                                                  {{key}}
+                                                </option>
+                                              </select>
+                                              </div>
+                                              </div >
+                                              <div class="col-md-4 col-md-offset-2">
+                                                <strong>Kod pocztowy:</strong>
+                                                <input v-model="order.zip" class="form-control" type="number" />
+                                              </div>
+                                           </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-md-5 boxes">
+                                              <input type="checkbox" id="gift" value="true"
+                                                v-bind:true-value="order.sendGift"
+                                                v-bind:false-value="order.dontSendGift"
+                                                v-model="order.gift">
+                                              <label style= "font-size:12px; margin-left: 5px;" for="gift">Wysłać jako prezent?</label>
+                                            </div>
+                                          </div>
 
-                  <div class="form-group">
-                    <div class="col-md-4 col-md-offset-3">
-                      <strong>Kod pocztowy:</strong>
-                      <input v-model="order.zip" class="form-control" type="number" />
-                    </div>
-                  </div>
+                                          <div class="form-group">
+                                            <div class="col-md-7 boxes">
+                                              <label>Adres: </label>
+                                              <input style= "margin-left:10px;" type="radio" id="home" v-bind:value="order.home" v-model="order.method">
+                                              <label style= "margin-right:10px;" for="home">Domowy</label>
+                                              <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
+                                              <label for="business">Firmowy</label>
 
-                  <div class="form-group">
-                    <div class="col-md-5 boxes">
-                      <input type="checkbox" id="gift" value="true"
-                        v-bind:true-value="order.sendGift"
-                        v-bind:false-value="order.dontSendGift"
-                        v-model="order.gift">
-                      <label style= "font-size:12px; margin-left: 5px;" for="gift">Wysłać jako prezent?</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-md-7 boxes">
-                      <label>Adres: </label>
-                      <input style= "margin-left:10px;" type="radio" id="home" v-bind:value="order.home" v-model="order.method">
-                      <label style= "margin-right:10px;" for="home">Domowy</label>
-                      <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
-                      <label for="business">Firmowy</label>
-                    </div>
-                  </div>
-
-                      <div class="form-group">
-                          <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
-                            </div>
-                              <div class="col-md-12 verify">
-                                      <pre style= "background-color: #efebe9;">
-        Imię: {{order.firstName}}
-    Nazwisko: {{order.lastName}}
-       Adres: {{order.address}}
- Miejscowość: {{order.city}}
-Kod pocztowy: {{order.zip}}
- Województwo: {{order.state}}
-      Metoda: {{order.method}}
-     Prezent: {{order.gift}}
-                                      </pre>
-                              </div>
-                      </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                                                        </div>
+                                                                                    <div class="form-group">
+                                                                                        <div class="col-md-6">
+                                                                                          <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
+                                                                                          </div>
+                                                                                            <div class="col-md-12 verify">
+                                        <pre style= "background-color: #efebe9;">
+         Imię: {{order.firstName}}
+     Nazwisko: {{order.lastName}}
+        Adres: {{order.address}}
+  Miejscowość: {{order.city}}
+ Kod pocztowy: {{order.zip}}
+  Województwo: {{order.state}}
+       Metoda: {{order.method}}
+      Prezent: {{order.gift}}
+                                        </pre>
+                                                                                            </div>
+                                                                                    </div>
+                                                      </div>
+                                    </div>  <!-- Koniec Panel info -->
+                                  </div>
         </div>
       </main>
     </div>
