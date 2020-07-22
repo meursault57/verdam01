@@ -65,7 +65,7 @@
                       </div>
                     </div>
         <div v-else>
-                                  <div class="col-md-10 col-md-offset-1">
+                                  <div class="col-md-12 col-md-offset-1">
                                     <div class="panel panel-info"> <!-- Panel info -->
                                       <div class="panel-heading">Formularz zamówienia</div>
                                         <div class="panel-body">
@@ -128,7 +128,7 @@
                                           </div>
 
                                           <div class="form-group">
-                                            <div class="col-md-7 boxes">
+                                            <div class="col-md-6 boxes col-md-offset-1">
                                               <label>Adres: </label>
                                               <input style= "margin-left:10px;" type="radio" id="home" v-bind:value="order.home" v-model="order.method">
                                               <label style= "margin-right:10px;" for="home">Domowy</label>
@@ -139,9 +139,9 @@
                                                                                     <div class="form-group">
                                                                                         <div class="col-md-6">
                                                                                           <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Złóż zamówienie</button>
-                                                                                          </div>
-                                                                                            <div class="col-md-12 verify">
-                                        <pre style= "background-color: #efebe9;">
+                                                                                        </div>
+<div class="col-md-12 verify">
+  <pre style= "background-color: #efebe9;">
          Imię: {{order.firstName}}
      Nazwisko: {{order.lastName}}
         Adres: {{order.address}}
@@ -150,8 +150,8 @@
   Województwo: {{order.state}}
        Metoda: {{order.method}}
       Prezent: {{order.gift}}
-                                        </pre>
-                                                                                            </div>
+  </pre>
+</div>
                                                                                     </div>
                                                       </div>
                                     </div>  <!-- Koniec Panel info -->
