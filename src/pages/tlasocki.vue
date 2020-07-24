@@ -99,17 +99,17 @@
                                           </div>
 
                                           <div class="form-group">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                               <strong>Województwo:</strong>
                                               <select v-model="order.state" class="form-control">
                                                 <option disabled value="">Województwo</option>
-                                                <option v-for="(state, key) in states" v-bind:key="state">
-                                                  {{key}}
+                                                <option v-for=" (state, key) in states" v-bind:value="state" v-bind:key="key">
+                                                  {{ key }}
                                                 </option>
                                               </select>
                                               </div>
                                               </div >
-                                              <div class="col-md-4 col-md-offset-2">
+                                              <div class="col-md-3 col-md-offset-6">
                                                 <strong>Kod pocztowy:</strong>
                                                 <input v-model="order.zip" class="form-control" type="number" />
                                               </div>
@@ -185,11 +185,13 @@ export default {
       },
       states: {
         ZP: 'Zachodniopomorskie',
-        DL: 'Dolnośląskie',
+        MO: 'Malborsko-opolskie',
+        DL: 'Dolnoślunskie',
         KP: 'Kujawsko-pomorskie',
         LB: 'Lubelskie',
         LU: 'Lubuskie'
       },
+
       product: {
         id: 1001,
         title: 'Zestaw komputerowy',
