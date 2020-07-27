@@ -128,10 +128,10 @@
                                           <div class="form-group">
                                             <div class="col-md-6 boxes col-md-offset-1">
                                               <label>Adres: </label>
-                                              <input style= "margin-left:10px;" type="radio" id="home" v-bind:value="order.home" v-model="order.method">
+                                              <input type ="radio" v-bind:value="order.home" v-model="order.method" style= "margin-left:10px;">
                                               <label style= "margin-right:10px;" for="home">Domowy</label>
-                                              <input type="radio" id="business" v-bind:value="order.business" v-model="order.method">
-                                              <label for="business">Firmowy</label>
+                                              <input type = "radio" v-bind:value="order.business" v-model="order.method">
+                                              <label style= "margin-right:0px;" for="business">Firmowy</label>
 
                                                         </div>
                                                                                     <div class="form-group">
@@ -179,7 +179,7 @@ export default {
         method: 'Adres domowy',
         business: 'Adres firmowy',
         home: 'Adres domowy',
-        gift: 'Wyślij jako prezent!',
+        gift: 'Wyślij jako prezent',
         sendGift: 'Wyślij jako prezent',
         dontSendGift: 'Nie, można owinąć w gazetę'
       },
