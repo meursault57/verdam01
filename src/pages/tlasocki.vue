@@ -42,22 +42,24 @@
                           <img style="height:90px; width:90px;" src="~assets/quasar-logo-full.svg"/>
                         </figure>
                       </div>
-                      <div class="col-md-7 col-md-offset-1">
-                        <!-- było md-7 za wąsko -->
-                        <h4 v-text="product.title"></h4>
-                        <p v-html="product.description"></p>
-                        <p>
-                          {{ product.price | formatPrice }}
-                        </p>
-                        <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
-                        <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
-                        <div class="rating">
-                        <span v-for="n in 5" :key="n" style="font-size:25px;">☆</span>
-                        </div>
-                        <div>
-                        <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0" style="color:red;">Brak towaru!</span>
-                        <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
-                        <span class="inventory-message" v-else>Kupuj teraz!</span>
+                          <div class="col-md-7 col-md-offset-1">
+                            <!-- było md-7 za wąsko -->
+                            <h4 v-text="product.title"></h4>
+                            <p v-html="product.description"></p>
+                            <p>
+                              {{ product.price | formatPrice }}
+                            </p>
+                            <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
+                            <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
+                              <div class="rating">
+                                <span v-bind:class="{'rating-active': checkRating(n)}"
+                                v-for="n in 5" :key="n" style="font-size:25px;">☆
+                                </span>
+                              </div>
+                          <div>
+                            <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0" style="color:red;">Brak towaru!</span>
+                            <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
+                            <span class="inventory-message" v-else>Kupuj teraz!</span>
                         </div>
                       </div>
                     </div>
@@ -196,7 +198,8 @@ export default {
         title: 'Zestaw komputerowy',
         description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
         price: 6700,
-        availableInventory: 10
+        availableInventory: 10,
+        rating: 3
         // src: 'img/quasar-logo-full.svg'
         // image
         // image: './assets/product-fullsize.png'
@@ -240,6 +243,9 @@ export default {
     submitForm () {
       alert('Wysłano formularz!')
       // …
+    },
+    checkRating (n) {
+      return this.product.rating - n >= 0
     }
   },
 
