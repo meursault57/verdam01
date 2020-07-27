@@ -44,7 +44,7 @@
                       </div>
                       <div class="col-md-7 col-md-offset-1">
                         <!-- było md-7 za wąsko -->
-                        <h5 v-text="product.title"></h5>
+                        <h4 v-text="product.title"></h4>
                         <p v-html="product.description"></p>
                         <p>
                           {{ product.price | formatPrice }}
