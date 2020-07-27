@@ -354,10 +354,11 @@ body {
   max-height:300px;
   max-width:100%;
 }
+/*
 .figure {
 
 }
-
+*/
 .rating-active:before {
    content: "\2605";
    position: absolute;
@@ -365,8 +366,8 @@ body {
 .rating {
   display: inline;
   margin-left: 10px;
-  margin-top: 10px;
-  float:right;
+  /*margin-top: 10px;
+  float:right;*/
 }
 .rating > span {
   display: inline-block;
