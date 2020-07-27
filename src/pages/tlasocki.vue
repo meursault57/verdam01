@@ -35,14 +35,14 @@
 
       <main>
         <div class="row product">
-                    <div v-if="showProduct">
+                    <div v-if="showProduct" class="col-md-12" >
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
                           <img style="height:90px; width:90px;" src="~assets/quasar-logo-full.svg"/>
                         </figure>
                       </div>
-                      <div class="col-md-7 col-md-offset-2 description">
+                      <div class="col-md-9 col-md-offset-2 description">
                         <!-- było md-7 za wąsko -->
                         <h5 v-text="product.title"></h5>
                         <p v-html="product.description"></p>
@@ -51,13 +51,14 @@
                         </p>
                         <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
                         <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
+                        <div>
                         <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0">Brak towaru!</span>
-                        <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5"> Zostało tylko {{product.availableInventory - cartItemCount}}!
-                        </span>
+                        <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
                         <span class="inventory-message" v-else>Kupuj teraz!</span>
                         <div class="rating">
                         <span v-for="n in 5" :key="n">☆</span>
                         </div>
+                                                </div>
                       </div>
                     </div>
         <div v-else>
@@ -304,12 +305,12 @@ export default {
 </script>
 
 <style>
-header h1 {
-  padding: 10px 20px;
+header h1{
+    padding: 10px 20px;
 }
 
 body {
-  max-width: 970px;
+    max-width: 970px !important;
 }
 .cart {
   padding: 20px 50px;
@@ -323,7 +324,7 @@ body {
 }
 
 .submit {
-  margin-top: 20px;
+  margin-top:20px;
   float: right;
 }
 
@@ -332,11 +333,44 @@ body {
 }
 .description {
   font-size: 150%;
-  margin-top: 50px;
+  margin-top:50px;
 }
-/*
-pre {
-    white-space: pre-line;
-  }
-*/
+
+.inventory-message {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.product {
+  margin-top: 30px;
+  margin-left: 20px;
+  max-height:300px;
+  max-width:100%;
+}
+.figure {
+
+}
+
+.rating-active:before {
+   content: "\2605";
+   position: absolute;
+}
+.rating {
+  display: inline;
+  margin-left: 10px;
+  margin-top: 10px;
+  float:right;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
 </style>
