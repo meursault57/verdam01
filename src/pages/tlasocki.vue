@@ -39,10 +39,7 @@
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                          <img
-                            style="height:90px; width:90px;"
-                            src="~assets/quasar-logo-full.svg"
-                          />
+                          <img style="height:90px; width:90px;" src="~assets/quasar-logo-full.svg"/>
                         </figure>
                       </div>
                       <div class="col-md-7 col-md-offset-2 description">
@@ -52,14 +49,15 @@
                         <p>
                           {{ product.price | formatPrice }}
                         </p>
-                        <button
-                          class="default"
-                          v-on:click="addToCart"
-                          v-if="canAddToCart"
-                        >
-                          Dodaj do koszyka
-                        </button>
-                        <button class="disabled" v-else>Dodaj do koszyka</button>
+                        <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
+                        <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
+                        <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0">Brak towaru!</span>
+                        <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5"> Zostało tylko {{product.availableInventory - cartItemCount}}!
+                        </span>
+                        <span class="inventory-message" v-else>Kupuj teraz!</span>
+                        <div class="rating">
+                        <span v-for="n in 5" :key="n">☆</span>
+                        </div>
                       </div>
                     </div>
         <div v-else>
