@@ -34,14 +34,15 @@
       <main>
         <div class="row product">
                     <div v-if="showProduct" class="col-md-12" >
+                      <div v-for="product in products" :key="product">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" src="~assets/gnomec.png"/> -->
                           <img style="height:90px; width:90px;" :src="product.image"/>
                         </figure>
                       </div>
-                          <div class="col-md-7 col-md-offset-1" style="border-color: #92a8d1; border-style: outset;">
-                            <!-- było md-7 za wąsko -->
+                          <!-- <div class="col-md-7 col-md-offset-1" style="border-color: #92a8d1; border-style: outset;"> -->
+                          <div class="col-md-7 col-md-offset-1">
                             <h4 v-text="product.title"></h4>
                             <p v-html="product.description"></p>
                             <p>
@@ -50,7 +51,7 @@
                             <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
                             <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
                               <div class="rating">
-                                <span v-bind:class="{'rating-active': checkRating(n)}"
+                                <span v-bind:class="{'rating-active': checkRating(n, product)}"
                                 v-for="n in 5" :key="n" style="font-size:25px;">☆
                                 </span>
                               </div>
@@ -59,8 +60,10 @@
                             <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
                             <span class="inventory-message" v-else>Kupuj teraz!</span>
                         </div>
-                      </div>
-                    </div>
+                        <hr style="border: 0px; background: #337AB7; height: 1px;">
+                      </div> <!-- koniec div row -->
+                      </div> <!-- koniec div v-for -->
+                    </div>   <!-- koniec div v-if showProduct -->
         <div v-else>
           <div class="row">
                                   <div class="col-md-12 col-md-offset-1">
@@ -240,8 +243,8 @@ export default {
       alert('Wysłano formularz!')
       // …
     },
-    checkRating (n) {
-      return this.product.rating - n >= 0
+    checkRating (n, myProduct) {
+      return myProduct.rating - n >= 0
     }
   },
 
