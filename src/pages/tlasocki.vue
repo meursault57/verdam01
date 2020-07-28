@@ -258,30 +258,21 @@ export default {
       console.log('**beforeCreate')
     }
   },
-  /*
-  created: function () {
-    if (APP_LOG_LIFECYCLE_EVENTS) {
-      // debugger
-      console.log('--------------------')
-      console.log('**sitename-> ' + this.sitename)
-      console.log('**p.id -> ' + this.product.id)
-      console.log('**p.title -> ' + this.product.title)
-      console.log('**p.description -> ' + this.product.description)
-      console.log('**p.price -> ' + this.product.price)
-      console.log('**p.availableInventory -> ' + this.product.availableInventory)
-      console.log('--------------------')
-      // debugger
-    }
-  },
-  */
+
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       this.$axios.get('./products.json')
         .then((response) => {
           this.products = response.data.products
-          console.log('----------axios----------')
+          // debugger
           console.log(this.products)
           console.log('----------axios----------')
+          console.log('**sitename-> ' + this.sitename)
+          console.log('**p.id -> ' + this.product.id)
+          console.log('**p.title -> ' + this.product.title)
+          console.log('**p.description -> ' + this.product.description)
+          console.log('**p.price -> ' + this.product.price)
+          console.log('**p.availableInventory -> ' + this.product.availableInventory)
         })
     }
   },
