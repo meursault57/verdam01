@@ -196,7 +196,7 @@ export default {
         price: 6700,
         availableInventory: 10,
         rating: 3,
-        image: 'fotob.png'
+        image: 'images/fotob.png'
       },
       products: [],
       cart: []
@@ -260,7 +260,7 @@ export default {
 
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
-      this.$axios.get('./products.json')
+      this.$axios.get('./json/products.json')
         .then((response) => {
           this.products = response.data.products
           // debugger
