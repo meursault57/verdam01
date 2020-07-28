@@ -162,7 +162,8 @@
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-import axios from 'axios'
+// import axios from 'axios'
+// import products from './products.json'
 export default {
   data () {
     return {
@@ -191,7 +192,6 @@ export default {
         LB: 'Lubelskie',
         LU: 'Lubuskie'
       },
-
       product: {
         id: 1001,
         title: 'Zestaw komputerowy',
@@ -201,7 +201,7 @@ export default {
         rating: 3,
         image: 'fotob.png'
       },
-      // products: [],
+      products: [],
       cart: []
     }
   },
@@ -260,6 +260,7 @@ export default {
       console.log('**beforeCreate')
     }
   },
+  /*
   created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       // debugger
@@ -274,12 +275,15 @@ export default {
       // debugger
     }
   },
-  function () {
-    axios.get('./products.json')
-      .then((response) => {
-        this.products = response.data.products
-        console.log(this.products)
-      })
+  */
+  created: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      this.$axios.get('./products.json')
+        .then((response) => {
+          this.products = response.data.products
+          console.log(this.products)
+        })
+    }
   },
 
   beforeMount: function () {
