@@ -34,7 +34,7 @@
       <main>
         <div class="row product">
                     <div v-if="showProduct" class="col-md-12" >
-                      <div v-for="product in products" :key="product">
+                      <div v-for="(product, key) in products" :key="key">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" src="~assets/gnomec.png"/> -->
@@ -48,7 +48,7 @@
                             <p>
                               {{ product.price | formatPrice }}
                             </p>
-                            <button class="btn btn-primary btn-lg" v-on:click="addToCart" v-if="canAddToCart">Dodaj do koszyka</button>
+                            <button class="btn btn-primary btn-lg" v-on:click="addToCart(product)" v-if="canAddToCart(product)">Dodaj do koszyka</button>
                             <button disabled="true" class="btn btn-primary btn-lg" v-else >Dodaj do koszyka</button>
                               <div class="rating">
                                 <span v-bind:class="{'rating-active': checkRating(n, product)}"
@@ -57,7 +57,7 @@
                               </div>
                           <div>
                             <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0" style="color:red;">Brak towaru!</span>
-                            <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < 5" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
+                            <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < prog" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
                             <span class="inventory-message" v-else>Kupuj teraz!</span>
                         </div>
                         <hr style="border: 0px; background: #337AB7; height: 1px;">
@@ -200,11 +200,13 @@ export default {
         description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 10,
+        prog: 9,
         rating: 3,
         image: 'images/fotob.png'
       },
       products: [],
-      cart: []
+      cart: [],
+      prog: 10
     }
   },
 
@@ -229,11 +231,28 @@ export default {
   },
 
   methods: {
-    addToCart: function () {
+    addToCart_old: function () {
       this.cart.push(this.product.id)
       console.log(this.cart)
       console.log(this.cartItemCount)
     },
+    addToCart (aProduct) {
+      this.cart.push(aProduct.id)
+    },
+
+    canAddToCart (aProduct) {
+      return aProduct.availableInventory > this.cartCount(aProduct.id)
+    },
+    cartCount (id) {
+      let count = 0
+      for (var i = 0; i < this.cart.length; i++) {
+        if (this.cart[i] === id) {
+          count++
+        }
+      }
+      return count
+    },
+
     showCheckout () {
       // this.showProduct = this.showProduct ? false: true;
       this.showProduct = !this.showProduct
@@ -252,7 +271,7 @@ export default {
     cartItemCount: function () {
       return this.cart.length || '0'
     },
-    canAddToCart: function () {
+    canAddToCart_old: function () {
       return this.product.availableInventory > this.cartItemCount
     }
   },
