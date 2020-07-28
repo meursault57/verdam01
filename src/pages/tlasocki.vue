@@ -279,7 +279,9 @@ export default {
       this.$axios.get('./products.json')
         .then((response) => {
           this.products = response.data.products
+          console.log('----------axios----------')
           console.log(this.products)
+          console.log('----------axios----------')
         })
     }
   },
