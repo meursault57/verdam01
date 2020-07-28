@@ -199,10 +199,7 @@ export default {
         price: 6700,
         availableInventory: 10,
         rating: 3,
-        // src: 'img/quasar-logo-full.svg'
-        // image
-        image: 'product-fullsize.png'
-        // image: './statics/product-fullsize.png'
+        image: 'fotob.png'
       },
       // products: [],
       cart: []
