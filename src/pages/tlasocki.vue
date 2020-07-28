@@ -162,8 +162,6 @@
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-// import axios from 'axios'
-// import products from './products.json'
 export default {
   data () {
     return {
