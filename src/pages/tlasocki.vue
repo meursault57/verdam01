@@ -238,6 +238,8 @@ export default {
     },
     addToCart (product) {
       this.cart.push(product.id)
+      console.log(this.cart)
+      console.log(this.cartItemCount)
     },
 
     canAddToCart (product) {
@@ -289,13 +291,13 @@ export default {
           this.products = response.data.products
           // debugger
           console.log(this.products)
-          console.log('----------axios----------')
-          console.log('**sitename-> ' + this.sitename)
-          console.log('**p.id -> ' + this.product.id)
-          console.log('**p.title -> ' + this.product.title)
-          console.log('**p.description -> ' + this.product.description)
-          console.log('**p.price -> ' + this.product.price)
-          console.log('**p.availableInventory -> ' + this.product.availableInventory)
+          // console.log('----------axios----------')
+          // console.log('**sitename-> ' + this.sitename)
+          // console.log('**p.id -> ' + this.product.id)
+          // console.log('**p.title -> ' + this.product.title)
+          // console.log('**p.description -> ' + this.product.description)
+          // console.log('**p.price -> ' + this.product.price)
+          // console.log('**p.availableInventory -> ' + this.product.availableInventory)
         })
     }
   },
