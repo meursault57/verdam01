@@ -5,16 +5,16 @@
             "title": "Komputer stacjonarny",
             "description": "Chiński badziew <em>doopa</em>!",
             "price": 6700,
-            "image": "assets/images/product-fullsize.png",
+            "image": "szt.png",
             "availableInventory": 10,
             "rating": 3
         },
         {
             "id": 1002,
-            "title": "Klawiatura",
+            "title": "basen",
             "description": "Całkiem niezła <strong>doopa</strong>!",
             "price": 799,
-            "image": "assets/images/yarn.jpg",
+            "image": "nod32.png",
             "availableInventory": 7,
             "rating": 2
         },
@@ -23,7 +23,7 @@
             "title": "Mysza",
             "description": "Szara, niepozorna, niewielka...",
             "price": 3500,
-            "image": "assets/images/cat-litter.jpg",
+            "image": "lm.png",
             "availableInventory": 99,
             "rating": 4
         },
@@ -32,7 +32,7 @@
             "title": "Monitor 25''",
             "description": "Średnia jakość, trochę mały...",
             "price": 2799,
-            "image": "assets/images/cat-house.jpg",
+            "image": "ok.png",
             "availableInventory": 11,
             "rating": 5
         },
@@ -41,7 +41,7 @@
             "title": "Wskaźnik laserowy",
             "description": "Nie wiadomo po co komu... <em>doopa</em>!",
             "price": 12599,
-            "image": "assets/images/laser-pointer.jpg",
+            "image": "gnomec.png",
             "availableInventory": 25,
             "rating": 5
         }
