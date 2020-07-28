@@ -2,8 +2,6 @@
   <div>
               <head>
                 <title>Skład dla zwierzaków :: Vue.js</title>
-                <!-- <script src="https://unpkg.com/vue"></script> -->
-                <!-- <link rel="stylesheet"  href="assets/css/app.css" /> -->
                 <link
                   rel="stylesheet"
                   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -39,7 +37,8 @@
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                          <img style="height:90px; width:90px;" src="~assets/gnomec.png"/>
+                          <!-- <img style="height:90px; width:90px;" src="~assets/gnomec.png"/> -->
+                          <img style="height:90px; width:90px;" :src="product.image"/>
                         </figure>
                       </div>
                           <div class="col-md-7 col-md-offset-1" style="border-color: #92a8d1; border-style: outset;">
@@ -163,8 +162,7 @@
 
 <script>
 var APP_LOG_LIFECYCLE_EVENTS = true
-// import image from './assets/product-fullsize.png'
-
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -184,6 +182,7 @@ export default {
         sendGift: 'Wyślij jako prezent',
         dontSendGift: 'Nie, można owinąć w gazetę'
       },
+
       states: {
         ZP: 'Zachodniopomorskie',
         MO: 'Malborsko-opolskie',
@@ -199,12 +198,13 @@ export default {
         description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 10,
-        rating: 3
+        rating: 3,
         // src: 'img/quasar-logo-full.svg'
         // image
-        // image: './assets/product-fullsize.png'
+        image: 'product-fullsize.png'
         // image: './statics/product-fullsize.png'
       },
+      // products: [],
       cart: []
     }
   },
@@ -277,6 +277,14 @@ export default {
       // debugger
     }
   },
+  function () {
+    axios.get('./products.json')
+      .then((response) => {
+        this.products = response.data.products
+        console.log(this.products)
+      })
+  },
+
   beforeMount: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('**beforeMount')
