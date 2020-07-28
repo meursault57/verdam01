@@ -11,10 +11,10 @@
         },
         {
             "id": 1002,
-            "title": "basen",
+            "title": "Basen",
             "description": "Całkiem niezła <strong>doopa</strong>!",
             "price": 799,
-            "image": "images/nod32.png",
+            "image": "images/basen.png",
             "availableInventory": 7,
             "rating": 2
         },
