@@ -36,7 +36,6 @@
                     <div v-if="showProduct" class="col-md-12" >
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
-                          <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
                           <!-- <img style="height:90px; width:90px;" src="~assets/gnomec.png"/> -->
                           <img style="height:90px; width:90px;" :src="product.image"/>
                         </figure>
