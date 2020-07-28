@@ -15,7 +15,7 @@
             "description": "Całkiem niezła <strong>doopa</strong>!",
             "price": 799,
             "image": "images/basen.png",
-            "availableInventory": 20,
+            "availableInventory": 10,
             "rating": 2
         },
         {
@@ -24,7 +24,7 @@
             "description": "Szara, niepozorna, niewielka...",
             "price": 3500,
             "image": "images/lm.png",
-            "availableInventory": 99,
+            "availableInventory": 10,
             "rating": 4
         },
         {
@@ -33,7 +33,7 @@
             "description": "Średnia jakość, trochę mały...",
             "price": 2799,
             "image": "images/ok.png",
-            "availableInventory": 11,
+            "availableInventory": 10,
             "rating": 5
         },
         {
@@ -42,7 +42,7 @@
             "description": "Nie wiadomo po co komu... <em>doopa</em>!",
             "price": 12599,
             "image": "images/gnomec.png",
-            "availableInventory": 25,
+            "availableInventory": 10,
             "rating": 5
         }
     ]

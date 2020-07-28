@@ -194,7 +194,7 @@ export default {
         LB: 'Lubelskie',
         LU: 'Lubuskie'
       },
-      product: {
+      product_old: {
         id: 1001,
         title: 'Zestaw komputerowy',
         description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
@@ -236,12 +236,12 @@ export default {
       console.log(this.cart)
       console.log(this.cartItemCount)
     },
-    addToCart (aProduct) {
-      this.cart.push(aProduct.id)
+    addToCart (product) {
+      this.cart.push(product.id)
     },
 
-    canAddToCart (aProduct) {
-      return aProduct.availableInventory > this.cartCount(aProduct.id)
+    canAddToCart (product) {
+      return product.availableInventory > this.cartCount(product.id)
     },
     cartCount (id) {
       let count = 0
