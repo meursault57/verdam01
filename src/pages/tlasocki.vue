@@ -62,6 +62,7 @@
                       </div>
                     </div>
         <div v-else>
+          <div class="row">
                                   <div class="col-md-12 col-md-offset-1">
                                     <div class="panel panel-info"> <!-- Panel info -->
                                       <div class="panel-heading">Formularz zamówienia</div>
@@ -153,6 +154,7 @@
                                                       </div>
                                     </div>  <!-- Koniec Panel info -->
                                   </div>
+            </div>
         </div>
       </main>
     </div>
