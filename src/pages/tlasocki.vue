@@ -39,10 +39,10 @@
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" :src="product.image"> -->
-                          <img style="height:90px; width:90px;" src="~assets/quasar-logo-full.svg"/>
+                          <img style="height:90px; width:90px;" src="~assets/gnomec.png"/>
                         </figure>
                       </div>
-                          <div class="col-md-7 col-md-offset-1">
+                          <div class="col-md-7 col-md-offset-1" style="border-color: #92a8d1; border-style: outset;">
                             <!-- było md-7 za wąsko -->
                             <h4 v-text="product.title"></h4>
                             <p v-html="product.description"></p>
