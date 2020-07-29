@@ -34,7 +34,7 @@
       <main>
         <div class="row product">
                     <div v-if="showProduct" class="col-md-12" >
-                      <div v-for="(product, key) in products" :key="key">
+                      <div v-for="(product, key) in sortedProducts" :key="key">
                       <div class="col-md-2 col-md-offset-1">
                         <figure>
                           <!-- <img style="height:90px; width:90px;" src="~assets/gnomec.png"/> -->
@@ -275,7 +275,23 @@ export default {
     },
     canAddToCart_old: function () {
       return this.product.availableInventory > this.cartItemCount
+    },
+
+    sortedProducts: function () {
+    //  if (this.products.length > 0) { <--jak to zrobić w computed???
+      const productsArray = this.products.slice(0)
+      function compare (a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+          return -1
+        }
+        if (a.title.toLowerCase() > b.title.toLowerCase()) {
+          return 1
+        }
+        return 0
+      }
+      return productsArray.sort(compare) ? productsArray.sort(compare) : alert('Doopa, pusta tablica produktów!')
     }
+  // }
   },
 
   beforeCreate: function () {
