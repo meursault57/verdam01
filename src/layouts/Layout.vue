@@ -64,6 +64,20 @@
             <q-item-label>{{rectangleTitle}}</q-item-label>
           </q-item-section>
         </q-item>
+
+                        <q-item
+          clickable
+          to="/components"
+          exact
+        >
+          <q-item-section>
+            <q-icon name="code" :key="getIconSize" :size="getIconSize" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{componentsTitle}}</q-item-label>
+          </q-item-section>
+        </q-item>
+
         <q-separator/>
 
         <q-item>
@@ -99,7 +113,8 @@ export default {
       calcTitle: 'Calculator',
       donateTitle: 'Donate',
       feedbackTitle: 'FeedBack',
-      rectangleTitle: 'Rectangle'
+      rectangleTitle: 'Rectangle',
+      componentsTitle: 'Components'
     }
   },
 
@@ -122,6 +137,9 @@ export default {
           break
         case '/feedbackpage':
           retTitle = this.feedBackTitle
+          break
+        case '/components':
+          retTitle = this.componentsTitle
           break
       }
       return retTitle
