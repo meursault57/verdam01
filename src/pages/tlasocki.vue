@@ -278,7 +278,8 @@ export default {
     },
 
     sortedProducts: function () {
-    //  if (this.products.length > 0) { <--jak to zrobić w computed???
+      // if (this.products.length === 0) { alert('Doopa, pusta tablica produktów!') }
+      // <--jak to zrobić w computed???
       const productsArray = this.products.slice(0)
       function compare (a, b) {
         if (a.title.toLowerCase() < b.title.toLowerCase()) {
@@ -289,7 +290,7 @@ export default {
         }
         return 0
       }
-      return productsArray.sort(compare) ? productsArray.sort(compare) : alert('Doopa, pusta tablica produktów!')
+      return productsArray.sort(compare)
     }
   // }
   },
