@@ -179,6 +179,10 @@ module.exports = function (/* ctx */) {
         appId: 'smooth'
       },
 
+      framework: {
+        components: ['QBtn', 'QIcon']
+      },
+
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
       nodeIntegration: true,
 
