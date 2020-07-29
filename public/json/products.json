@@ -3,28 +3,31 @@
         {
             "id": 1001,
             "title": "Komputer stacjonarny",
-            "description": "Chiński badziew <em>doopa</em>!",
+            "description": "Najnowszy model <em>doopa</em>!",
             "price": 6700,
-            "image": "images/szt.png",
+            "image": "images/komp.jpg",
             "availableInventory": 10,
+            "endingInventory": 10,
             "rating": 3
         },
         {
             "id": 1002,
             "title": "Basen",
-            "description": "Całkiem niezła <strong>doopa</strong>!",
+            "description": "Całkiem niezły <strong>doopa</strong>!",
             "price": 799,
             "image": "images/basen.png",
             "availableInventory": 10,
+            "endingInventory": 10,
             "rating": 2
         },
         {
             "id": 1003,
             "title": "Mysza",
-            "description": "Szara, niepozorna, niewielka...",
+            "description": "Niewielka ale szybka...",
             "price": 3500,
-            "image": "images/lm.png",
+            "image": "images/mysz.jpg",
             "availableInventory": 10,
+            "endingInventory": 10,
             "rating": 4
         },
         {
@@ -32,17 +35,19 @@
             "title": "Monitor 25''",
             "description": "Średnia jakość, trochę mały...",
             "price": 2799,
-            "image": "images/ok.png",
+            "image": "images/monitor.jpg",
             "availableInventory": 10,
+            "endingInventory": 10,
             "rating": 5
         },
         {
             "id": 1005,
-            "title": "Wskaźnik laserowy",
+            "title": "Nowoczesny Serwer 'Odra' ",
             "description": "Nie wiadomo po co komu... <em>doopa</em>!",
             "price": 12599,
-            "image": "images/gnomec.png",
+            "image": "images/odra.jpg",
             "availableInventory": 10,
+            "endingInventory": 10,
             "rating": 5
         }
     ]

@@ -56,8 +56,8 @@
                                 </span>
                               </div>
                           <div>
-                            <span class="inventory-message" v-if="product.availableInventory - cartItemCount === 0" style="color:red;">Brak towaru!</span>
-                            <span class="inventory-message" v-else-if="product.availableInventory - cartItemCount < prog" style="color:blue;"> Zostało tylko {{product.availableInventory - cartItemCount}}!</span>
+                            <span class="inventory-message" v-if="product.availableInventory - cartCount(product.id) === 0" style="color:red;">Brak towaru!</span>
+                            <span class="inventory-message" v-else-if="product.availableInventory - cartCount(product.id) < product.endingInventory" style="color:blue;"> Zostało tylko {{product.availableInventory - cartCount(product.id)}}!</span>
                             <span class="inventory-message" v-else>Kupuj teraz!</span>
                         </div>
                         <hr style="border: 0px; background: #337AB7; height: 1px;">
@@ -169,7 +169,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-      sitename: 'Magazyn WINF dla urz...sów',
+      sitename: 'Magazyn z chłamem.',
       showProduct: true,
       order: {
         firstName: 'Zenobiusz',
@@ -200,7 +200,6 @@ export default {
         description: 'Dobry do gierek (eduard):<b> doopa!<b>...',
         price: 6700,
         availableInventory: 10,
-        prog: 9,
         rating: 3,
         image: 'images/fotob.png'
       },
@@ -238,8 +237,8 @@ export default {
     },
     addToCart (product) {
       this.cart.push(product.id)
-      console.log(this.cart)
-      console.log(this.cartItemCount)
+      console.log('CARD: ' + this.cart)
+      console.log('CARD_ITEM_COUNT: ' + this.cartItemCount)
     },
 
     canAddToCart (product) {
@@ -252,6 +251,7 @@ export default {
           count++
         }
       }
+      console.log(id + ' ==> ' + count)
       return count
     },
 
