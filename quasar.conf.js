@@ -92,7 +92,9 @@ module.exports = function (/* ctx */) {
       importStrategy: 'auto',
 
       // Quasar plugins
-      plugins: []
+      plugins: [],
+      directives: ['Ripple', 'TouchPan', 'TouchSwipe'],
+      components: ['QBtn', 'QIcon']
     },
 
     // animations: 'all', // --- includes all animations
