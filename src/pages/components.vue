@@ -1,6 +1,19 @@
+
 <template>
-<div>
-  <q-btn @click="doSomething" label="Do something" />
-  <!-- <q-icon name="alarm" /> -->
-</div>
-</template>>
+  <div>
+    <template>
+    <q-input v-model='doopa'></q-input>
+    </template>
+  </div>
+</template>
+
+<script>
+
+export default {
+  data () {
+    return {
+      doopa: 'Cześć z komponentu lokalnego!'
+    }
+  }
+}
+</script>

@@ -180,7 +180,10 @@ module.exports = function (/* ctx */) {
       },
 
       framework: {
-        components: ['QBtn', 'QIcon']
+        // components: ['QBtn', 'QIcon', 'my-component'],
+        components: 'all',
+        framework: 'all',
+        plugins: ['Notify', 'BottomSheet']
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
