@@ -1,10 +1,12 @@
 
 <template>
   <div>
-    <q-input v-model='doopa'></q-input>
+    <q-page padding>
+    <q-input v-model="doopa" @keyup.space="handleKeyup" />
     <q-btn @click="doopa=''">Clear.L</q-btn>
     <q-btn @click="clearMessage">Clear.M</q-btn>
     <h5>{{ doopa }}</h5>
+    </q-page>
   </div>
 </template>
 
@@ -18,6 +20,12 @@ export default {
   methods: {
     clearMessage () {
       this.doopa = ''
+    },
+    handleKeyup (e) {
+      console.log(e)
+      // if (e.keyCode === 32) {
+      this.clearMessage()
+      // }
     }
   }
 }
