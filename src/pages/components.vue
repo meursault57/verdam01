@@ -1,20 +1,23 @@
 
 <template>
-  <div>
     <q-page padding>
-      <q-input v-model="message" @keyup.space="handleKeyup" />
+      <q-btn style= "position: absolute; right: 20px"> {{counter}} </q-btn>
+      <q-input v-model="message" @keyup="handleKeyup" />
       <q-btn @click="message=''">Clear.L</q-btn>
       <q-btn @click="clearMessage">Clear.M</q-btn>
-      <h5 class="border-grey" v-show="message.length">{{ message }}</h5>
+      <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
+      <h6 v-else>No message entered </h6>
+      <hr>
+      <p>Uppercase message: {{ messageUppercase () }}</p>
     </q-page>
-  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      message: 'Wpis do komponentu, konstruktor.'
+      message: 'Wpis do komponentu, konstruktor.',
+      counter: 0
     }
   },
   methods: {
@@ -23,12 +26,15 @@ export default {
     },
     handleKeyup (e) {
       console.log(e)
-      // if (e.keyCode === 32) {
-      this.clearMessage()
-      // }
+      if (e.keyCode === 32) {
+        this.clearMessage()
+      }
     },
     alertMessage () {
       alert(this.message)
+    },
+    messageUppercase () {
+      return this.message.toUpperCase()
     }
   }
 }
@@ -36,7 +42,10 @@ export default {
 
 <style>
 h5 {
-color: #3d213e  /* deep purple */
+  color: #3d213e;  /* deep purple */
+}
+h6 {
+  color: red;
 }
 .border-grey {
   border: 1px solid grey;
