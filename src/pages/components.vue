@@ -10,6 +10,7 @@
       <hr>
       <!-- <p>Uppercase message: <b>{{ messageUppercase_1() }}</b></p> -->
       <p>Uppercase message: <b>{{ messageUppercase }}</b></p>
+      <p>Lovercase message: <b>{{ message | messageLovercase }}</b></p>
     </q-page>
 </template>
 
@@ -18,7 +19,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-      message: 'Wpis z konstruktora.',
+      message: 'Wpis z KonstruktorA.',
       counter: 0
     }
   },
@@ -26,6 +27,11 @@ export default {
     messageUppercase () {
       console.log('messageUppercase was fired')
       return this.message.toUpperCase()
+    }
+  },
+  filters: {
+    messageLovercase (value) {
+      return value.toLowerCase()
     }
   },
   methods: {
