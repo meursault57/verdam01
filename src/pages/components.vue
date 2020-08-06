@@ -2,10 +2,10 @@
 <template>
   <div>
     <q-page padding>
-    <q-input v-model="doopa" @keyup.space="handleKeyup" />
-    <q-btn @click="doopa=''">Clear.L</q-btn>
-    <q-btn @click="clearMessage">Clear.M</q-btn>
-    <h5>{{ doopa }}</h5>
+      <q-input v-model="doopa" @keyup.space="handleKeyup" @click="alertMessage" />
+      <q-btn @click="doopa=''">Clear.L</q-btn>
+      <q-btn @click="clearMessage">Clear.M</q-btn>
+      <h5 class="border-grey">{{ doopa }}</h5>
     </q-page>
   </div>
 </template>
@@ -26,6 +26,9 @@ export default {
       // if (e.keyCode === 32) {
       this.clearMessage()
       // }
+    },
+    alertMessage () {
+      alert(this.doopa)
     }
   }
 }
@@ -33,6 +36,9 @@ export default {
 
 <style>
 h5 {
-color: purple
+color: #3a243b  /* deep purple */
+}
+.border-grey {
+  border: 1px solid grey;
 }
 </style>
