@@ -2,10 +2,10 @@
 <template>
   <div>
     <q-page padding>
-      <q-input v-model="doopa" @keyup.space="handleKeyup" @click="alertMessage" />
-      <q-btn @click="doopa=''">Clear.L</q-btn>
+      <q-input v-model="message" @keyup.space="handleKeyup" />
+      <q-btn @click="message=''">Clear.L</q-btn>
       <q-btn @click="clearMessage">Clear.M</q-btn>
-      <h5 class="border-grey">{{ doopa }}</h5>
+      <h5 class="border-grey" v-show="message.length">{{ message }}</h5>
     </q-page>
   </div>
 </template>
@@ -14,12 +14,12 @@
 export default {
   data () {
     return {
-      doopa: 'Wpis do komponentu, konstruktor.'
+      message: 'Wpis do komponentu, konstruktor.'
     }
   },
   methods: {
     clearMessage () {
-      this.doopa = ''
+      this.message = ''
     },
     handleKeyup (e) {
       console.log(e)
@@ -28,7 +28,7 @@ export default {
       // }
     },
     alertMessage () {
-      alert(this.doopa)
+      alert(this.message)
     }
   }
 }
@@ -36,7 +36,7 @@ export default {
 
 <style>
 h5 {
-color: #3a243b  /* deep purple */
+color: #3d213e  /* deep purple */
 }
 .border-grey {
   border: 1px solid grey;
