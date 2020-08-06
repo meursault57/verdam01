@@ -1,14 +1,14 @@
 
 <template>
     <q-page padding>
-      <q-btn style= "position: absolute; right: 20px"> {{counter}} </q-btn>
-      <q-input v-model="message" @keyup="handleKeyup" />
-      <q-btn @click="message=''">Clear.L</q-btn>
-      <q-btn @click="clearMessage">Clear.M</q-btn>
+      <q-btn style= "position: absolute; right: 20px" @click="counter++"> {{counter}} </q-btn>
+      <input v-model="message" @keyup="handleKeyup" />
+      <button @click="message=''">Clear.L</button>
+      <button @click="clearMessage">Clear.M</button>
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
       <h6 v-else>No message entered </h6>
       <hr>
-      <p>Uppercase message: {{ messageUppercase () }}</p>
+      <p>Uppercase message: <b>{{ messageUppercase() }}</b></p>
     </q-page>
 </template>
 
@@ -16,7 +16,7 @@
 export default {
   data () {
     return {
-      message: 'Wpis do komponentu, konstruktor.',
+      message: 'Wpis z konstruktora.',
       counter: 0
     }
   },
