@@ -8,16 +8,23 @@
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
       <h6 v-else>No message entered </h6>
       <hr>
-      <p>Uppercase message: <b>{{ messageUppercase() }}</b></p>
+      <p>Uppercase message: <b>{{ messageUppercase_1() }}</b></p>
     </q-page>
 </template>
 
 <script>
+var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
       message: 'Wpis z konstruktora.',
       counter: 0
+    }
+  },
+  computed: {
+    messageUppercase () {
+      console.log('messageUppercase was fired')
+      return this.message.toUpperCase()
     }
   },
   methods: {
@@ -33,8 +40,50 @@ export default {
     alertMessage () {
       alert(this.message)
     },
-    messageUppercase () {
+    messageUppercase_1 () {
+      console.log('messageUppercase was fired')
       return this.message.toUpperCase()
+    }
+  },
+  // LIFECYCLE_EVENTS ////////////////
+  beforeCreate: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****beforeCreate')
+    }
+  },
+  created: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****created')
+    }
+  },
+  beforeMount: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****beforeMount')
+    }
+  },
+  mounted: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****mounted')
+    }
+  },
+  beforeUpdate: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****beforeUpdate')
+    }
+  },
+  updated: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****updated')
+    }
+  },
+  beforeDestroy: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****beforeDestroy')
+    }
+  },
+  destroyed: function () {
+    if (APP_LOG_LIFECYCLE_EVENTS) {
+      console.log('*****destroyed')
     }
   }
 }
