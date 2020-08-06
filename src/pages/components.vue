@@ -8,7 +8,8 @@
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
       <h6 v-else>No message entered </h6>
       <hr>
-      <p>Uppercase message: <b>{{ messageUppercase_1() }}</b></p>
+      <!-- <p>Uppercase message: <b>{{ messageUppercase_1() }}</b></p> -->
+      <p>Uppercase message: <b>{{ messageUppercase }}</b></p>
     </q-page>
 </template>
 
@@ -41,7 +42,7 @@ export default {
       alert(this.message)
     },
     messageUppercase_1 () {
-      console.log('messageUppercase was fired')
+      console.log('messageUppercase_1 was fired')
       return this.message.toUpperCase()
     }
   },
