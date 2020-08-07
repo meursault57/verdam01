@@ -50,7 +50,7 @@ export default {
       alert(this.message)
     },
     messageUppercase_1 () {
-      console.log('messageUppercase_1 was fired')
+      console.log('messageUppercase_1 METHODS was fired')
       return this.message.toUpperCase()
     }
   },
