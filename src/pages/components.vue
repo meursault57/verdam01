@@ -6,7 +6,8 @@
       <input
       v-model="message"
       @keyup="handleKeyup"
-      v-autofocus />
+      v-autofocus
+      v-bind:class="{ 'error' : message.length < 15 }" />
       <button @click="message=''">Clear.L</button>
       <button @click="clearMessage">Clear.M</button>
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
@@ -41,8 +42,9 @@ export default {
   },
   directives: {
     autofocus: {
-      inserted () {
+      inserted (el) {
         console.log('input inserted !!!')
+        el.focus()
       }
     }
   },
@@ -117,5 +119,12 @@ h6 {
 }
 .border-grey {
   border: 1px solid grey;
+}
+input, button {
+  font-size: 23px;
+}
+.error {
+  color: red;
+  background: pink;
 }
 </style>
