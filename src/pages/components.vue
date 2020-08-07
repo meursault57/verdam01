@@ -3,7 +3,10 @@
     <q-page padding>
       <q-btn style= "position: absolute; right: 20px" @click="counter1++"> {{counter1}} </q-btn>
       <q-btn style= "position: absolute; right: 70px" @click="counter2++"> {{counter2}} </q-btn>
-      <input v-model="message" @keyup="handleKeyup" />
+      <input
+      v-model="message"
+      @keyup="handleKeyup"
+      v-autofocus />
       <button @click="message=''">Clear.L</button>
       <button @click="clearMessage">Clear.M</button>
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
@@ -20,7 +23,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-      message: 'Wpis z KonstruktorA.',
+      message: 'Wpis z KonstruktorAA.',
       counter1: 0,
       counter2: 0
     }
@@ -28,12 +31,19 @@ export default {
   computed: {
     messageUppercase () {
       console.log('messageUppercase was fired')
-      return this.message.toUpperCase()
+      return this.message.toUpperCase() + ' :licznik(1) ' + this.counter1
     }
   },
   filters: {
     messageLovercase (value) {
       return value.toLowerCase()
+    }
+  },
+  directives: {
+    autofocus: {
+      inserted () {
+        console.log('input inserted !!!')
+      }
     }
   },
   methods: {
@@ -51,7 +61,7 @@ export default {
     },
     messageUppercase_1 () {
       console.log('messageUppercase_1 METHODS was fired')
-      return this.message.toUpperCase()
+      return this.message.toUpperCase() + ' :licznik(2) ' + this.counter2
     }
   },
   // LIFECYCLE_EVENTS ////////////////
