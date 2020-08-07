@@ -7,9 +7,11 @@
       v-model="message"
       @keyup="handleKeyup"
       v-autofocus
-      v-bind:class="{ 'error' : message.length < 15 }" />
+      v-bind:class="{ 'error' : message.length > 22 }"
+      :style="errorStyle" />
       <button @click="message=''">Clear.L</button>
       <button @click="clearMessage">Clear.M</button>
+      <div>{{ message.length }}</div>
       <h5 v-if="message.length" class="border-grey">{{ message }}</h5>
       <h6 v-else>No message entered </h6>
       <hr>
@@ -33,6 +35,14 @@ export default {
     messageUppercase () {
       console.log('messageUppercase was fired')
       return this.message.toUpperCase() + ' :licznik(1) ' + this.counter1
+    },
+    errorStyle () {
+      // if ( this.message.length > 24) {
+      return {
+        color: 'blue',
+        background: ' yellow'
+      }
+      // }
     }
   },
   filters: {
@@ -121,7 +131,7 @@ h6 {
   border: 1px solid grey;
 }
 input, button {
-  font-size: 23px;
+  font-size: 20px;
 }
 .error {
   color: red;
