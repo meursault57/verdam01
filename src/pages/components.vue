@@ -1,7 +1,8 @@
 
 <template>
     <q-page padding>
-      <q-btn style= "position: absolute; right: 20px" @click="counter++"> {{counter}} </q-btn>
+      <q-btn style= "position: absolute; right: 20px" @click="counter1++"> {{counter1}} </q-btn>
+      <q-btn style= "position: absolute; right: 70px" @click="counter2++"> {{counter2}} </q-btn>
       <input v-model="message" @keyup="handleKeyup" />
       <button @click="message=''">Clear.L</button>
       <button @click="clearMessage">Clear.M</button>
@@ -20,7 +21,8 @@ export default {
   data () {
     return {
       message: 'Wpis z KonstruktorA.',
-      counter: 0
+      counter1: 0,
+      counter2: 0
     }
   },
   computed: {
