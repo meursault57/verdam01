@@ -50,7 +50,7 @@ export default {
           background: ' yellow'
         }
       }
-      return false // computed musi coś zwracać !!!
+      return 1.2 // dodane bo computed musi coś zwracać(!!!) a wyłączyć się nie udaje...
     }
   },
   filters: {
@@ -85,42 +85,42 @@ export default {
     }
   },
   // LIFECYCLE_EVENTS ////////////////
-  beforeCreate: function () {
+  beforeCreate_1: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeCreate')
     }
   },
-  created: function () {
+  created_1a: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****created')
     }
   },
-  beforeMount: function () {
+  beforeMount_2: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeMount')
     }
   },
-  mounted: function () {
+  mounted_2a: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****mounted')
     }
   },
-  beforeUpdate: function () {
+  beforeUpdate_3: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeUpdate')
     }
   },
-  updated: function () {
+  updated_3a: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****updated')
     }
   },
-  beforeDestroy: function () {
+  beforeDestroy_4: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeDestroy')
     }
   },
-  destroyed: function () {
+  destroyed_4a: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****destroyed')
     }
@@ -139,7 +139,7 @@ h6 {
   border: 1px solid grey;
 }
 input, button {
-  font-size: 20px;
+  font-size: 19px;
 }
 .error {
   color: red;
