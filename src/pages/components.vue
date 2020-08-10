@@ -8,7 +8,8 @@
       @keyup="handleKeyup"
       v-autofocus
       v-bind:class="{ 'error' : message.length > 22 }"
-      :style="errorStyle" />
+      :style="errorStyle"
+      ref="messageInput"/>
       <button @click="message=''">Clear.L</button>
       <button @click="clearMessage">Clear.M</button>
       <div>{{ message.length }}</div>
@@ -103,6 +104,8 @@ export default {
   mounted: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****mounted')
+      console.log(this.$refs)
+      this.$refs.messageInput.className = 'bg-green'
     }
   },
   beforeUpdate: function () {
