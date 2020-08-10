@@ -31,18 +31,26 @@ export default {
       counter2: 0
     }
   },
+  /*
+  options: {
+    'vue/return-in-computed-property': ['error', {
+      treatUndefinedAsUnspecified: false
+    }]
+  },
+  */
   computed: {
     messageUppercase () {
       console.log('messageUppercase was fired')
       return this.message.toUpperCase() + ' :licznik(1) ' + this.counter1
     },
     errorStyle () {
-      // if ( this.message.length > 24) {
-      return {
-        color: 'blue',
-        background: ' yellow'
+      if (this.message.length > 23) {
+        return {
+          color: 'blue',
+          background: ' yellow'
+        }
       }
-      // }
+      return false
     }
   },
   filters: {
