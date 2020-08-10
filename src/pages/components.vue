@@ -2,7 +2,7 @@
 <template>
     <q-page padding>
       <q-btn style= "position: absolute; right: 20px" @click="counter1++"> {{counter1}} </q-btn>
-      <q-btn style= "position: absolute; right: 70px" @click="counter2++"> {{counter2}} </q-btn>
+      <q-btn style= "position: absolute; right: 70px" @click="counter2++" ref="dooooopa"> {{counter2}} </q-btn>
       <input
       v-model="message"
       @keyup="handleKeyup"
