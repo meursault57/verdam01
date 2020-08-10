@@ -85,42 +85,42 @@ export default {
     }
   },
   // LIFECYCLE_EVENTS ////////////////
-  beforeCreate_1: function () {
+  beforeCreate: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeCreate')
     }
   },
-  created_1a: function () {
+  created: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****created')
     }
   },
-  beforeMount_2: function () {
+  beforeMount: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeMount')
     }
   },
-  mounted_2a: function () {
+  mounted: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****mounted')
     }
   },
-  beforeUpdate_3: function () {
+  beforeUpdate: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeUpdate')
     }
   },
-  updated_3a: function () {
+  updated: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****updated')
     }
   },
-  beforeDestroy_4: function () {
+  beforeDestroy: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****beforeDestroy')
     }
   },
-  destroyed_4a: function () {
+  destroyed: function () {
     if (APP_LOG_LIFECYCLE_EVENTS) {
       console.log('*****destroyed')
     }
