@@ -50,7 +50,7 @@ export default {
           background: ' yellow'
         }
       }
-      return false
+      return false // computed musi coś zwracać !!!
     }
   },
   filters: {
