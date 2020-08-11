@@ -4,6 +4,7 @@
         <li v-for="(task, key) in tasks" :key="key">
           <div>{{ task.name }} ({{ key }})</div>
           <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
+          <button>xy</button>
           </li>
       </ul>
     </q-page>
