@@ -65,6 +65,19 @@
           </q-item-section>
         </q-item>
 
+                       <q-item
+          clickable
+          to="/citrone"
+          exact
+        >
+          <q-item-section>
+            <q-icon name="extension" :key="getIconSize" :size="getIconSize" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{citroneTitle}}</q-item-label>
+          </q-item-section>
+        </q-item>
+
                         <q-item
           clickable
           to="/components"
@@ -114,7 +127,8 @@ export default {
       donateTitle: 'Donate',
       feedbackTitle: 'FeedBack',
       rectangleTitle: 'Rectangle',
-      componentsTitle: 'Components'
+      componentsTitle: 'Components',
+      citroneTitle: 'Citrone'
     }
   },
 
@@ -140,6 +154,9 @@ export default {
           break
         case '/components':
           retTitle = this.componentsTitle
+          break
+        case '/citrone':
+          retTitle = this.citroneTitle
           break
       }
       return retTitle
