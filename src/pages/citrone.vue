@@ -1,16 +1,21 @@
 <template>
     <q-page padding>
       <ul>
+        <!--
         <li v-for="(task, key) in tasks" :key="key">
           <div>{{ task.name }} ({{ key }})</div>
           <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
           <button @click="deleteTask(key)">xy</button>
           </li>
+        -->
+      <task
+      v-for="(task, key) in tasks" :key="key"></task>
       </ul>
     </q-page>
 </template>
 
 <script>
+// import Task from 'components/Task.vue'
 var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
@@ -45,6 +50,9 @@ export default {
       console.log(key)
       this.tasks.splice(key, 1)
     }
+  },
+  components: {
+    task: require('components/Task.vue').default
   },
 
   // LIFECYCLE_EVENTS ////////////////
