@@ -7,7 +7,8 @@ const routes = [
       { path: '', component: () => import('pages/tlasocki.vue') },
       { path: 'calcpage', component: () => import('pages/calcpage.vue') },
       { path: 'rectangle', component: () => import('pages/rectangle.vue') },
-      { path: 'components', component: () => import('pages/components.vue') }
+      { path: 'components', component: () => import('pages/components.vue') },
+      { path: 'citrone', component: () => import('pages/citrone.vue') }
     ]
   }
   /*
