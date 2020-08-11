@@ -4,7 +4,7 @@
         <li v-for="(task, key) in tasks" :key="key">
           <div>{{ task.name }} ({{ key }})</div>
           <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
-          <button>xy</button>
+          <button @click="deleteTask(key)">xy</button>
           </li>
       </ul>
     </q-page>
@@ -38,6 +38,12 @@ export default {
           dueTime: '18:00'
         }
       ]
+    }
+  },
+  methods: {
+    deleteTask (key) {
+      console.log(key)
+      this.tasks.splice(key, 1)
     }
   },
 
