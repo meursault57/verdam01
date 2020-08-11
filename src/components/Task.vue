@@ -1,12 +1,14 @@
 <template>
-        <li v-for="(task, key) in tasks" :key="key">
-          <div>{{ task.name }} ({{ key }})</div>
+      <div>
+          <div><slot>{{ index }}</slot></div>
           <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
-          <button @click="deleteTask(key)">xy</button>
-          </li>
+      </div>
 </template>
 
 <script>
+export default {
+  props: ['task', 'index']
+}
 </script>
 
 <style>
