@@ -1,6 +1,8 @@
 <template>
     <q-page padding>
-
+      <ul>
+        <li v-for="task in tasks" :key="task">{{ task }}</li>
+      </ul>
     </q-page>
 </template>
 
@@ -9,7 +11,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true
 export default {
   data () {
     return {
-
+      tasks: ['Go to shop', 'Get bananas', 'Get apples']
     }
   },
 
