@@ -94,7 +94,26 @@ module.exports = function (/* ctx */) {
       // Quasar plugins
       plugins: [],
       directives: ['Ripple', 'TouchPan', 'TouchSwipe'],
-      components: ['QBtn', 'QIcon']
+      components: [
+        'QLayout',
+        'QHeader',
+        'QDrawer',
+        'QPageContainer',
+        'QPage',
+        'QToolbar',
+        'QToolbarTitle',
+        'QBtn',
+        'QIcon',
+        'QList',
+        'QItem',
+        'QItemSection',
+        'QItemLabel',
+        'QTable',
+        'QInput',
+        'QCard',
+        'QCardSection'
+      ]
+
     },
 
     // animations: 'all', // --- includes all animations
