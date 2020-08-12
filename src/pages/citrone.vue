@@ -11,7 +11,10 @@
         </div>
       -->
       <task
-      v-for="(task, index) in tasks" :key="task.id" :task="task" :index="index"
+      v-for="(task, index) in tasks"
+      :key="task.id"
+      :task="task"
+      :index="index"
       >{{ task.name }} ({{task.id}})
       <button @click="deleteTask(index)">xy</button>
       </task>
